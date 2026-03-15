@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary SEO -->
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="">
+
+    <!-- Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilmer:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!--  CSS -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    {% block extra_css %}    {% endblock %}
+</head>
+<body>
+<!-- Notification CSS -->
+
+<!-- Header Template -->
+{% block header %}  {% endblock  %}
+
+
+<!-- Main Content -->
+{% block content %}  {% endblock %}
+
+<!-- Footer Template -->
+{% block footer %}   {% endblock  %}
+
+<!-- JavaScript Libraries -->
+
+<!-- Template Javascript -->
+<script src="{% static 'javascripts/main.js' %}"> </script>
+{% block scripts %}  {% endblock %}
+
+</body>
+</html>
