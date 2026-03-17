@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base styles */
+@layer base {
+  body{
+    font-family: "Raleway", sans-serif;
+  }
+}
+
+
+/* Components */
+@layer components {
+
+.section-custom{
+  @apply w-full ;
+}
+
+.container-custom{
+  @apply max-w-[1280px]  mx-auto px-4 md:px-6 lg:px-8;
+}
+
+.btn{
+  @apply pt-[15px] pr-[22px] pb-[15px] pl-[22px] rounded-[111px] text-[16px] font-[600] transition duration-300;
+}
+
+.btn-primary{
+  @apply btn bg-[var(--primary)] text-[var(--white)]  hover:bg-[var(--text-primary)];
+}
+
+.btn-secondary{
+  @apply btn border border-[var(--text-primary)] bg-[var(--secondary)] text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--white)];
+}
+.sub-title{
+ @apply  text-[16px] text-[var(--primary)] font-[600] capitalize bg-[var(--secondary)] inline-block w-auto px-5 py-[8px] rounded-[111px] ;
+}
+
+.heading-primary{
+  @apply text-[40px] md:text-[48px] lg:text-[50px] font-[700] text-[var(--text-primary)];
+}
+
+.heading-secondary{
+   @apply text-[40px] md:text-[48px] lg:text-[56px] font-[600] text-[var(--primary)];
+}
+
+.heading-tertiary{
+  @apply text-[25px] md:text-[35px] lg:text-[45px] font-[600] text-[var(--text-primary)];
+}
+
+
+.nav-link{
+  @apply text-[var(--text-primary)] font-[600] hover:text-[var(--primary)] transition duration-300;
+}
+.custom-form-fields{
+  @apply border border-[var(--text-light)] text-[16px] px-[20px] py-4 rounded-[122px] focus:outline-1 focus:outline-[var(--primary)] focus:text-[var(--primary)] focus:font-[600];
+}
+.custom-form-btn{
+  @apply  px-[25px] py-[10px] text-[16px] cursor-pointer rounded-[122px] bg-[var(--primary)] text-[var(--white)] font-[600]  hover:bg-[var(--text-primary)] hover:text-[var(--white)] ;
+}
+
+}
+
+/* Utilities */
+@layer utilities {
+
+}

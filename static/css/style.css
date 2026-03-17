@@ -1,0 +1,44 @@
+:root{
+  --primary:#6c5ffc;
+  --secondary:#ecdef8;
+  --text-primary:#0a0a0a;
+  --text-light:#818181;
+  --light:#f6f8fa;
+  --white:#ffffff;
+  --bg-color:#f0f0f0;
+}
+
+@font-face {
+font-family: "Raleway";
+src: url("/static/assets/fonts/raleway/Raleway-ExtraBold.ttf");
+
+src: url("/static/assets/fonts/raleway/Raleway-Bold.ttf");
+src: url("/static/assets/fonts/raleway/Raleway-SemiBold.ttf");
+
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/static/assets/fonts/raleway/Raleway-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Raleway";
+   src: url("/static/assets/fonts/raleway/Raleway-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/static/assets/fonts/raleway/Raleway-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/static/assets/fonts/raleway/Raleway-ExtraBold.ttf");
+    font-weight: 800;
+}
+
+
