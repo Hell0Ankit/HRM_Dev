@@ -82,7 +82,7 @@
 .icon-primary{
   @apply border  bg-[var(--primary-light)] text-[var(--primary)]  hover:bg-[var(--primary)]  hover:text-white;
 }
-
+    
 
 
 
@@ -99,7 +99,7 @@
 }
 
 .input{
-  @apply w-full border rounded-[6px] px-3 py-2  focus:outline-none focus:ring-1 focus:ring-[var(--primary)] focus:text-[var(--primary)];
+  @apply w-full border rounded-[6px] py-[10px] px-[10px] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] focus:text-[var(--primary)];
 }
 
 }

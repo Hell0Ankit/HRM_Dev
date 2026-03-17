@@ -1,26 +1,24 @@
  <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
     <div class="flex items-center gap-4">
-        <button id="toggleBtn" class="text-gray-500 hover:text-indigo-600">
+        <button id="toggleBtn" class="text-[var(--text-body)] hover:text-[var(--primary)]">
             <i class="fas fa-bars text-xl"></i>
         </button>
-         <h1 class="text-lg font-semibold">Hello Thomas 👋</h1>
+        <h1 class="secondary-heading">Hello Thomas 👋</h1>
     </div>
-
     <div class="flex items-center gap-6">
-        <div class="relative hidden md:block">
-            <input type="text" placeholder="Search Here..." class="bg-gray-100 border-none rounded-full py-2 px-4 pl-10 focus:ring-2 focus:ring-indigo-400 w-64">
-            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-        </div>
-        <div class="flex items-center gap-4 text-gray-500">
-            <i class="fas fa-globe hover:text-indigo-600 cursor-pointer"></i>
-            <i class="fas fa-bell hover:text-indigo-600 cursor-pointer"></i>
-            <div class="flex items-center gap-2 border-l pl-4">
-                <div class="text-right hidden sm:block">
-                    <p class="text-sm font-bold text-gray-900 leading-none">Jhon Smith</p>
-                    <span class="text-xs text-green-500">● online</span>
-                </div>
-                <img src="https://ui-avatars.com/api/?name=Jhon+Smith" class="w-8 h-8 rounded-full">
+
+    <div class="hidden md:flex items-center w-64 px-4 py-2 border border-gray-300 rounded-full shadow-sm focus-within:ring-1 focus-within:ring-[var(--primary)] focus-within:border-[var(--primary)] transition">
+        <input type="text" placeholder="Search Here . . ." class="bg-transparent outline-none w-full text-sm text-[var(--primary)] placeholder-[var(--text-body)]"/>
+        <button type="submit" class="ml-2 text-[var(--primary)] transition">  <i class="fas fa-search"></i></button>
+    </div>
+    <div class="flex items-center gap-4 ">
+        <div class="flex items-center gap-2 border-l pl-4">
+            <div class="text-right hidden sm:block">
+                <p class="text-[var(--text-heading)] text-[14px] font-[700]">Jhon Smith</p>
+                <span class="body-text text-[12px]"> Dipartment</span>
             </div>
+            <img src="https://ui-avatars.com/api/?name=Jhon+Smith" class="w-8 h-8 rounded-full">
         </div>
+    </div>
     </div>
 </header>
