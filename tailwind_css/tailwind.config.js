@@ -7,6 +7,12 @@ export default {
     "../static/**/*.css"
   ],
   theme: {
+    screens: {
+      'xs': '576px',  
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    },
     extend: {},
   },
   plugins: [],

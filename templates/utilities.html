@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% load static %} 
+{% block title %}Login {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block header %} {% endblock %} 
+{% block content %}
+<section class="section-custom py-24">
+  <div class="container-custom button">
+    <h1 class="primary-heading text-[var(--primary)] pb-5">
+      Our All Buttons Design
+    </h1>
+
+    <a href="#" class="btn btn-primary"> Primary Btn</a>
+    <a href="#" class="btn btn-secondary"> Primary Btn</a>
+    <a href="#" class="btn btn-info"> Info Btn</a>
+    <a href="#" class="btn btn-danger"> Danger Btn</a>
+    <a href="#" class="btn btn-success"> Success Btn</a>
+    <a href="#" class="btn btn-warning"> Warning Btn</a>
+  </div>
+
+  <div class="container-custom mt-[40px]">
+    <h1 class="primary-heading text-[var(--primary)] pb-5">
+      Our Headings Design
+    </h1>
+    <h1 class="primary-heading">Primary Heading</h1>
+    <p class="secondary-heading">Secondary Heading</p>
+    <p class="body-bold-text">Body Bold text</p>
+    <p class="body-text">Body Bold text</p>
+  </div>
+
+    
+  <div class="container-custom mt-[40px]">
+    <h1 class="primary-heading text-[var(--primary)] pb-5">
+      Our Card Design
+    </h1>
+    <div class="card">
+      <p class="body-bold-text">Body Bold text</p>
+      <p class="body-text">Body Bold text</p>
+    </div>
+  </div>
+
+  <div class="container-custom mt-[40px]">
+    <h1 class="primary-heading text-[var(--primary)] pb-5">
+      Icons Design like this
+     </h1>
+    <a href="#" class="icon icon-primary">
+      <i class="fa-regular fa-eye"> </i>
+    </a>
+  </div>
+
+  <div class="container-custom mt-[40px]">
+    <h1 class="primary-heading text-[var(--primary)] pb-5">
+      Link text like this
+     </h1>
+    <a href="#" class="text-link"> Text Link Here </a>
+  </div>
+
+
+
+
+
+ 
+        
+<div class="container-custom mt-[40px] p-10" >
+
+      <h1 class="primary-heading text-[var(--primary)] pb-5">
+      our Form Design
+     </h1>
+  
+  <div class="card flex items-center justify-center bg-gray-100 py-10">
+    
+    
+    <form class="w-full max-w-[900px] mx-auto bg-white p-6 rounded-lg shadow-md">
+      
+      <h2 class="primary-heading py-6">Contact Form</h2>
+
+      <!-- Name -->
+      <div class="flex flex-wrap justify-between gap-4">
+            <div class="w-full lg:w-[48%]">
+                <label class="body-bold-text block py-2">Full Name</label>
+                <input type="text" placeholder="Enter your name" class="input" />
+            </div>
+            
+            <div class="w-full lg:w-[48%] ">
+                <label class="body-bold-text block py-2">User Email</label>
+                <input type="email" placeholder="Enter your Email" class="input" />
+            </div>
+
+            <div class="w-full lg:w-[48%]">
+                <label class="body-bold-text block py-2">User Telephone </label>
+                <input type="text" placeholder="Enter your telephone" class="input" />
+            </div>
+
+            <div class="w-full lg:w-[48%]">
+                <label class="body-bold-text block py-2">Message</label>
+                <input type="text" placeholder="Drop  Message" class="input" />
+            </div>
+      </div>
+
+      <!-- Button -->
+      <div class="p-0 mt-4">
+           <button type="submit" class="btn btn-primary px-4"> Submit Form </button>
+      </div>
+
+    </form>
+
+ 
+
+</div>
+
+    </div>
+
+</section>
+{% endblock %} {% block footer %}
+{% endblock %}
