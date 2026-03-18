@@ -1,17 +1,9 @@
-{% extends "base.html" %} {% load static %} 
+{% extends "base.html" %} 
+{% load static %} 
 {% block title %}HR Dashboard {% endblock%}
 {% block extra_css %} {% endblock %} 
-{% block header %} {% endblock %} 
-{% block content %}
-<div class="flex h-screen overflow-hidden">  
-    {% include "dashboard/hr_dashboard/side-bar.html" %}
-    <div class="flex-1 flex flex-col overflow-hidden">
-        {% include "dashboard/hr_dashboard/header.html" %}
-        <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
-        {% include "employees/employee_listing.html" %}
-        </main>
-        {% include "dashboard/hr_dashboard/footer.html" %}
-    </div>
-</div>
-{% endblock %} {% block footer %}
+{% block dasboard_contetnt %}
+
+<h2 class="text-[300px]">HR Dashboard </h2>
+
 {% endblock %}
