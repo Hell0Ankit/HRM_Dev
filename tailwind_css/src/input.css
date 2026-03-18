@@ -26,29 +26,38 @@
 .btn{
   @apply py-[10px] px-[10px]  rounded-[6px] text-[14px] font-[600] transition-all duration-500 ease-in-out;
 }
-
+.btn-small{
+  @apply py-[8px] px-[8px]  rounded-[6px] text-[14px] font-[600] transition-all duration-500 ease-in-out;
+}
 .btn-primary{
-  @apply btn bg-[var(--primary)] border border-[var(--primary)] text-[var(--white)] hover:text-[var(--primary)] hover:bg-[var(--primary-light)];
+  @apply  bg-[var(--primary)] border border-[var(--primary)] text-[var(--white)] hover:text-[var(--primary)] hover:bg-[var(--primary-light)];
 }
 .btn-secondary{
-  @apply btn bg-[var(--primary-light)] border border-[var(--primary)] text-[var(--primary)] hover:text-[var(--white)] hover:bg-[var(--primary)];
+  @apply  bg-[var(--primary-light)] border border-[var(--primary)] text-[var(--primary)] hover:text-[var(--white)] hover:bg-[var(--primary)];
 }
 
 .btn-info{
-  @apply btn bg-[var(--info)] border border-[var(--info)] text-[var(--white)] hover:text-[var(--info)] hover:bg-[var(--primary-light)];
+  @apply  bg-[var(--info)] border border-[var(--info)] text-[var(--white)] hover:text-[var(--info)] hover:bg-[var(--primary-light)];
 }
 
 .btn-danger{
-  @apply btn bg-[var(--danger)] border border-[var(--danger)] text-[var(--white)] hover:text-[var(--danger)] hover:bg-[var(--primary-light)];
+  @apply  bg-[var(--danger)] border border-[var(--danger)] text-[var(--white)] hover:text-[var(--danger)] hover:bg-[var(--primary-light)];
 }
 
 .btn-success{
-  @apply btn bg-[var(--success)] border border-[var(--success)] text-[var(--white)] hover:text-[var(--success)] hover:bg-[var(--primary-light)];
+  @apply bg-[var(--success)] border border-[var(--success)] text-[var(--white)] hover:text-[var(--success)] hover:bg-[var(--primary-light)];
 }
 .btn-warning{
   @apply btn bg-[var(--warning)] border border-[var(--warning)] text-[var(--white)] hover:text-[var(--warning)] hover:bg-[var(--primary-light)];
 }
 
+.status{
+  @apply px-4 py-3;
+}
+
+.status-tag{
+  @apply text-[var(--white)] px-3 py-1 rounded-full text-xs;
+}
 
 /* all text-font style here  */
 .primary-heading{
