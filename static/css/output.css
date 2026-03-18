@@ -1422,6 +1422,10 @@ body{
   text-align: right;
 }
 
+.text-\[300px\] {
+  font-size: 300px;
+}
+
 .text-\[30px\] {
   font-size: 30px;
 }
@@ -1448,14 +1452,6 @@ body{
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[200px\] {
-  font-size: 200px;
-}
-
-.text-\[300px\] {
-  font-size: 300px;
 }
 
 .font-\[500\] {

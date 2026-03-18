@@ -20,24 +20,24 @@
         </button>
         <!-- Dropdown Menu -->
         <div id="dropdown" class="ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
-            <a href="#" class="block py-[6px] text-link">— Employee</a>
-            <a href="#" class="block py-[6px] text-link">— Profile</a>
+            <a href="{% url 'employee_listing'  %}" class="block py-[6px] text-link">— Employee</a>
+            <a href="{% url 'employee_profile'  %}" class="block py-[6px] text-link">— Profile</a>
         </div>
 
         <!--Designations-->
-        <a href="#" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+        <a href="{% url 'designations'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
                 <i class="fa-solid fa-briefcase"></i> Designations 
         </a>
         <!--Attendance-->
-        <a href="#" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+        <a href="{% url 'attendance'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
             <i class="fa-solid fa-fingerprint"></i> Attendance 
         </a>
 
         <!--leaves-->
-        <a href="#" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+        <a href="{% url 'leave'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
             <i class="fas fa-calendar-alt"></i> Leave Application
         </a>
-        <a href="#" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+        <a href="{% url 'holidays'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
            <i class="fas fa-umbrella-beach"></i> Holidays 
         </a>
     </nav>
