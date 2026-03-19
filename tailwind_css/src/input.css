@@ -22,6 +22,12 @@
 }
 
 
+.container-dashboard{
+  @apply w-full mx-auto px-3;
+}
+
+
+
 /* All button clasess here  */
 .btn{
   @apply py-[10px] px-[10px]  rounded-[6px] text-[14px] font-[600] transition-all duration-500 ease-in-out;
@@ -88,10 +94,17 @@
   @apply flex items-center justify-center w-[50px] h-[50px] rounded-full transition-all duration-500;
 }
 
+.small-icon{
+  @apply flex items-center justify-center w-[30px] h-[30px] p-4 rounded-full transition-all duration-500;
+}
 .icon-primary{
   @apply border  bg-[var(--primary-light)] text-[var(--primary)]  hover:bg-[var(--primary)]  hover:text-white;
 }
     
+
+
+
+  
 
 
 

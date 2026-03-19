@@ -612,6 +612,14 @@ body{
   }
 }
 
+.container-dashboard {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 /* All button clasess here  */
 
 .btn {
@@ -814,6 +822,19 @@ body{
   transition-duration: 500ms;
 }
 
+.small-icon {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 1rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
 .icon-primary {
   border-width: 1px;
   background-color: var(--primary-light);
@@ -958,6 +979,10 @@ body{
   margin-top: 0.25rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1018,8 +1043,16 @@ body{
   height: 100vh;
 }
 
+.max-h-\[300px\] {
+  max-height: 300px;
+}
+
 .w-0 {
   width: 0px;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .w-10 {
@@ -1040,6 +1073,10 @@ body{
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[100\%\] {
+  width: 100%;
 }
 
 .w-full {
@@ -1123,6 +1160,14 @@ body{
   justify-content: space-between;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1139,6 +1184,16 @@ body{
   gap: 1.5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1149,6 +1204,24 @@ body{
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-\[16px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(16px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(16px * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -1166,12 +1239,20 @@ body{
   overflow: hidden;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .overflow-x-auto {
   overflow-x: auto;
 }
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-\[6px\] {
@@ -1218,6 +1299,10 @@ body{
   border-color: var(--light);
 }
 
+.border-\[var\(--primary\)\] {
+  border-color: var(--primary);
+}
+
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
@@ -1262,6 +1347,10 @@ body{
 
 .bg-\[var\(--success\)\] {
   background-color: var(--success);
+}
+
+.bg-\[var\(--warning\)\] {
+  background-color: var(--warning);
 }
 
 .bg-\[var\(--white\)\] {
@@ -1339,6 +1428,10 @@ body{
   padding: 0.5rem;
 }
 
+.p-20 {
+  padding: 5rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -1365,6 +1458,11 @@ body{
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 
 .py-1 {
@@ -1410,6 +1508,10 @@ body{
   padding-left: 1rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1422,8 +1524,12 @@ body{
   text-align: right;
 }
 
-.text-\[300px\] {
-  font-size: 300px;
+.align-middle {
+  vertical-align: middle;
+}
+
+.text-\[20px\] {
+  font-size: 20px;
 }
 
 .text-\[30px\] {
@@ -1621,6 +1727,10 @@ body{
   .md\:flex {
     display: flex;
   }
+
+  .md\:w-\[48\%\] {
+    width: 48%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1628,7 +1738,25 @@ body{
     display: block;
   }
 
+  .lg\:w-\[32\%\] {
+    width: 32%;
+  }
+
   .lg\:w-\[48\%\] {
+    width: 48%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-\[23\%\] {
+    width: 23%;
+  }
+
+  .xl\:w-\[24\%\] {
+    width: 24%;
+  }
+
+  .xl\:w-\[48\%\] {
     width: 48%;
   }
 }
