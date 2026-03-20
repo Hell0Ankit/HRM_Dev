@@ -562,9 +562,9 @@ body{
   width: 100%;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 640px) {
   .container {
-    max-width: 576px;
+    max-width: 640px;
   }
 }
 
@@ -583,6 +583,12 @@ body{
 @media (min-width: 1280px) {
   .container {
     max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
   }
 }
 
@@ -1158,6 +1164,10 @@ body{
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-end {
@@ -1814,7 +1824,17 @@ body{
     width: calc((100% - 1rem) / 2);
   }
 
+  .xl\:w-\[calc\(\(100\%-2rem\)\/3\)\] {
+    width: calc((100% - 2rem) / 3);
+  }
+
   .xl\:w-\[calc\(\(100\%-3rem\)\/4\)\] {
+    width: calc((100% - 3rem) / 4);
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:w-\[calc\(\(100\%-3rem\)\/4\)\] {
     width: calc((100% - 3rem) / 4);
   }
 }
