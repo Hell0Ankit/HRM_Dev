@@ -979,6 +979,10 @@ body{
   margin-top: 0.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -1095,6 +1099,10 @@ body{
   flex: 1 1 0%;
 }
 
+.flex-none {
+  flex: none;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
@@ -1126,6 +1134,10 @@ body{
 
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -1198,6 +1210,12 @@ body{
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
@@ -1420,6 +1438,10 @@ body{
   padding: 0px;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -1430,6 +1452,10 @@ body{
 
 .p-20 {
   padding: 5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .p-4 {
@@ -1500,8 +1526,20 @@ body{
   padding-bottom: 6px;
 }
 
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
 }
 
 .pl-4 {
@@ -1524,8 +1562,16 @@ body{
   text-align: right;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .align-middle {
   vertical-align: middle;
+}
+
+.text-\[18px\] {
+  font-size: 18px;
 }
 
 .text-\[20px\] {
@@ -1731,6 +1777,10 @@ body{
   .md\:w-\[48\%\] {
     width: 48%;
   }
+
+  .md\:w-\[calc\(\(100\%-1rem\)\/2\)\] {
+    width: calc((100% - 1rem) / 2);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1745,18 +1795,26 @@ body{
   .lg\:w-\[48\%\] {
     width: 48%;
   }
+
+  .lg\:w-\[calc\(\(100\%-1rem\)\/2\)\] {
+    width: calc((100% - 1rem) / 2);
+  }
 }
 
 @media (min-width: 1280px) {
-  .xl\:w-\[23\%\] {
-    width: 23%;
-  }
-
   .xl\:w-\[24\%\] {
     width: 24%;
   }
 
   .xl\:w-\[48\%\] {
     width: 48%;
+  }
+
+  .xl\:w-\[calc\(\(100\%-1rem\)\/2\)\] {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  .xl\:w-\[calc\(\(100\%-3rem\)\/4\)\] {
+    width: calc((100% - 3rem) / 4);
   }
 }

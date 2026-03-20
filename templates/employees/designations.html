@@ -3,5 +3,73 @@
 {% block title %}Designations {% endblock%}
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
-<h2 class="text-[30px]">Employee Designations </h2>
+<section class="container-dashboard space-y-[16px]">
+    
+    <div class="section-3">
+            <!-- Box left  -->
+            <div class="card w-full">
+                <div class="top-bar flex justify-between">
+                    <div class="left flex items-center gap-4">
+                        <div class="icon icon-primary">
+                            <i class="fa-solid fa-users text-[20px]"></i>
+                         </div>
+                         <h2 class="secondary-heading">Department & Designations</h2>
+                    </div>
+                   
+                </div>
+
+                <div class="overflow-x-auto mt-3 card max-h-[300px] overflow-y-auto border">
+                    <table class="text-left w-[100%]">
+                        <!-- Header -->
+                        <thead class="bg-[var(--primary-light)] body-bold-text border" >
+                            <tr>
+                            <th class=" px-4 py-3"> Designation</th>
+                            <th class=" px-4 py-3"> Department</th>
+                            <th class=" px-4 py-3">Action</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Body -->
+                        <tbody class="bg-[var(--light)] body-text ">
+                            <!-- Row -->
+                            <tr class="border">
+                            <!-- Admin -->
+                                <td class="px-4 py-3 ">Information Technology Department</td>
+                                <td class="px-4 py-3 ">Software Developer</td>
+                                <!-- Action -->
+                                <td class="px-4 py-3 flex gap-2">
+                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+
+                            <!-- Row -->
+                             <tr class="border">
+                            <!-- Admin -->
+                                <td class="px-4 py-3 ">Information Technology Department</td>
+                                <td class="px-4 py-3 ">Software Developer</td>
+                                <!-- Action -->
+                                <td class="px-4 py-3 flex gap-2">
+                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr> 
+                             
+                            <!-- Row -->
+                             <tr class="border">
+                            <!-- Admin -->
+                                <td class="px-4 py-3 ">Information Technology Department</td>
+                                <td class="px-4 py-3 ">Software Developer</td>
+                                <!-- Action -->
+                                <td class="px-4 py-3 flex gap-2">
+                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
 {% endblock %}

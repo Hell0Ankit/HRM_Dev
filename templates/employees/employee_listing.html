@@ -4,7 +4,7 @@
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
  <section class="container-dashboard space-y-[16px]">
-    <div class="employee flex flex-wrap gap-4 justify-between ">
+    <div class="employee flex flex-wrap gap-4 justify-between pb-4">
         <div class="card xl:w-[24%] lg:w-[32%] md:w-[48%] w-full text-center space-y-4">
             <div class="img flex justify-center">
                 <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
@@ -19,7 +19,7 @@
             </div>
             <div class=" flex gap-3 justify-center items-center">
             <a href="#" class="btn-small btn-primary px-7"> Call</a>
-            <a href="#" class="btn-small btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class="btn-small btn-secondary px-7"> View</a>
             </div>
         </div>
         <div class="card xl:w-[24%] lg:w-[32%] md:w-[48%] w-full text-center space-y-4">
@@ -36,7 +36,7 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
         <div class="card xl:w-[24%] lg:w-[32%] md:w-[48%] w-full text-center space-y-4">
@@ -53,25 +53,7 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-        <div class="card xl:w-[24%] lg:w-[32%] md:w-[48%] w-full text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile' %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
 
@@ -89,7 +71,25 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
+            </div>
+        </div>
+
+        <div class="card xl:w-[24%] lg:w-[32%] md:w-[48%] w-full text-center space-y-4">
+            <div class="img flex justify-center">
+                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
+            </div>
+            <h2 class="secondary-heading">Naira Muskan</h2>
+            <p class="body-bold-text">Chief Executive Officer</p>
+             <div class="social  flex justify-center gap-2">
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
+            </div>
+            <div class="btn">
+            <a href="#" class="btn btn-primary px-7"> Call</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
 
@@ -108,7 +108,7 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
 
@@ -128,7 +128,7 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
 
@@ -146,9 +146,18 @@
             </div>
             <div class="btn">
             <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="#" class=" btn btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_profile'  %}" class=" btn btn-secondary px-7"> View</a>
             </div>
         </div>
     </div> 
+  <!-- pagination -->
+    <div class="pagination flex justify-center gap-2">
+            <a href="#" class="btn-small btn-primary"><i class="fa-solid fa-angles-left"></i></a>
+            <a href="#" class="btn-small btn-secondary ">1</a>
+            <a href="#" class="btn-small btn-secondary ">2</a>
+            <a href="#" class="btn-small btn-secondary ">3</a>
+            <a href="#" class="btn-small btn-secondary ">4</a>
+            <a href="#" class="btn-small btn-primary"><i class="fa-solid fa-angles-right"></i></a>
+        </div>
 </section>
 {% endblock %}
