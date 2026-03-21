@@ -1,0 +1,22 @@
+{% load static %}
+<header class="h-16 bg-[var(--white)] border-b border-[var(--light)] flex items-center justify-between px-6">
+    <div class="flex items-center gap-4">
+        <button id="toggleBtn" class="text-[var(--text-body)] hover:text-[var(--primary)]">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+        <h2 class="secondary-heading">Hello Thomas</h2>
+    </div>
+    <div class="flex items-center gap-6">
+        <div class="hidden md:flex items-center w-64 px-4 py-2 border border-[var(--light)] rounded-full shadow-sm focus-within:ring-1 focus-within:ring-[var(--primary)] focus-within:border-[var(--primary)] transition">
+            <input type="text" placeholder="Search Here . . ." class="bg-transparent outline-none w-full text-sm text-[var(--primary)] placeholder-[var(--text-body)]"/>
+            <button type="submit" class="ml-2 text-[var(--primary)] transition">  <i class="fas fa-search"></i></button>
+        </div>
+        <div class="flex items-center gap-2 border-l pl-4">
+            <img src="{% static 'images/profile/profile.jpg' %}" class="w-9 h-9 rounded-full">
+            <div class="text-left">
+                <p class="text-[var(--text-heading)] body-bold-text">Jhon Smith</p>
+                <span class="body-text"> Employee </span>
+            </div>
+        </div>
+    </div>
+</header>

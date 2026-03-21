@@ -26,19 +26,11 @@
     {% block extra_css %}    {% endblock %}
 </head>
 <body>
-    <div class="flex h-screen overflow-hidden">  
-        {% include "dashboard/hr_dashboard/side-bar.html" %}
-        <div class="flex-1 flex flex-col overflow-hidden">
-            {% include "dashboard/hr_dashboard/header.html" %}
-            <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
-            {% block dasboard_contetnt %}
-                
+    {% block content %}
+       
 
-            {% endblock  %}
-            </main>
-            {% include "dashboard/hr_dashboard/footer.html" %}
-        </div>
-    </div>
+    
+    {% endblock  %}
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"> </script>
     {% block scripts %}  {% endblock %}

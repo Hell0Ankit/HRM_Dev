@@ -10,3 +10,10 @@ def add_employees(request):
 def designations(request):
     return render(request, 'employees/designations.html')
 
+
+
+# for employee  
+
+def personal_details(request):
+    return render(request, 'employees/profile/personal-details.html')
+

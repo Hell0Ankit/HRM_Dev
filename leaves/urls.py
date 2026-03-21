@@ -4,6 +4,7 @@ from leaves import views
 
 urlpatterns = [
    path('leave_applications/',views.leave_applications, name='leave_applications' ),
+   path('holidays/',views.holidays, name='holidays' ),
 ]
 
 

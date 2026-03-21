@@ -12,16 +12,18 @@
             <i class="fas fa-th-large"></i> HRM Dashboards
         </a>
         <!-- Employee Dropdown Button -->
-        <button onclick="toggleDropdown()" class="w-full flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
-            <span class="flex items-center gap-3">
-            <i class="fas fa-users"></i> Employee
-            </span>
-            <i id="arrow" class="fas fa-chevron-down text-sm transition-transform"></i>
-        </button>
-        <!-- Dropdown Menu -->
-        <div id="dropdown" class="ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
-            <a href="{% url 'employee_listing'  %}" class="block py-[6px] text-link">— Employee</a>
-            <a href="{% url 'add_employees'  %}" class="block py-[6px] text-link">— Add Emloyees</a>
+        <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-solid fa-person-walking-arrow-right"></i> Leaves
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'employee_listing'  %}" class="block py-[6px] text-link">— Employee</a>
+                <a href="{% url 'add_employees'  %}" class="block py-[6px] text-link">— Add Emloyees</a>
+            </div>
         </div>
 
         <!--Designations-->
@@ -40,15 +42,4 @@
            <i class="fas fa-umbrella-beach"></i> Holidays 
         </a>
     </nav>
-
-<!-- JS -->
-<script>
-  function toggleDropdown() {
-    const dropdown = document.getElementById("dropdown");
-    const arrow = document.getElementById("arrow");
-
-    dropdown.classList.toggle("hidden");
-    arrow.classList.toggle("rotate-180");
-  }
-</script>
 </aside>

@@ -8,11 +8,11 @@ export default {
   ],
   theme: {
     screens: {
-      'sm': '640px',   // mobile large
-      'md': '768px',   // tablet
-      'lg': '1024px',  // small laptop
-      'xl': '1280px',  // desktop
-      '2xl': '1536px', // large screen
+      'sm': '567px',   // mobile
+      'md': '768px',   // Small Tablets
+      'lg': '1024px',  // Small Laptops
+      'xl': '1280px',  // Laptops/Desktops
+      '2xl': '1400px', // large screen
     },
     extend: {},
   },
