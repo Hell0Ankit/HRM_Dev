@@ -15,7 +15,7 @@
         <div class="menu">
             <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
                 <span class="flex items-center gap-3">
-                <i class="fa-solid fa-person-walking-arrow-right"></i> Leaves
+                <i class="fa-solid fa-users"></i> Employees
                 </span>
                 <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
             </button>
@@ -35,11 +35,11 @@
         </a>
 
         <!--leaves-->
-        <a href="{% url 'leave_applications'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
-            <i class="fas fa-calendar-alt"></i> Leave Application
+        <a href="{% url 'leaves'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+            <i class="fas fa-calendar-alt"></i> Leaves Status
         </a>
         <a href="{% url 'holidays'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
-           <i class="fas fa-umbrella-beach"></i> Holidays 
+           <i class="fas fa-umbrella-beach"></i> Holidays List
         </a>
     </nav>
 </aside>

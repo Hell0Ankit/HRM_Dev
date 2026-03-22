@@ -3,8 +3,9 @@ from leaves import views
 
 
 urlpatterns = [
-   path('leave_applications/',views.leave_applications, name='leave_applications' ),
-   path('holidays/',views.holidays, name='holidays' ),
+    path('leaves/',views.leaves, name='leaves' ),
+    path('holidays/',views.holidays, name='holidays' ),
+    path('leaves_application/',views.leaves_application, name='leaves_application' ),
 ]
 
 
