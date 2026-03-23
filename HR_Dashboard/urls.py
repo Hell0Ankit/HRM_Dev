@@ -10,6 +10,7 @@ urlpatterns = [
     path('attendance_status/',views.attendance_status, name='attendance_status' ),
     path('leaves_status/',views.leaves_status, name='leaves_status' ),
     path('holydays_listing/',views.holydays_listing, name='holydays_listing' ),
+    path('create_employee/', views.create_employee, name='create_employee'),
 
 ]
 
