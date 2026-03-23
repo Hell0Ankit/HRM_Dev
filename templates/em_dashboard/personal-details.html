@@ -1,0 +1,117 @@
+
+{% extends "em_dashboard/partial/em_base.html" %} 
+{% load static %}
+{% block title %}Employee Profile Details {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="section-1 flex flex-wrap  gap-4">
+        <!-- Box left  -->
+        <div class="card flex-1 w-full sm:w-1/2 space-y-[16px]">
+            <div class="top-bar flex justify-between pb-3 border-b">
+                <div class="left flex items-center gap-4">
+                    <div class="icon icon-primary">
+                        <i class="fa-solid fa-user text-[18px]"></i>
+                    </div>
+                        <h2 class="secondary-heading">Personal Information</h2>
+                </div>
+                <div class="right">
+                    <a href="" class="icon icon-primary">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="details flex flex-wrap flex-row gap-4 ">
+                <div class="img flex-1">
+                    <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="230px"  class="border">
+                </div>
+                <div class="detaildata flex-1 space-y-2 ">
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name: <span class="body-text">Naira Muskan</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Department: <span class="body-text">IT</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">EMID001</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">Chief Executive Officer</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">14JAN2026</span></p>
+                </div>
+                <div class="detaildata  flex-1 space-y-2 ">
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Birthday:<span class="body-text">28Dec2002</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Gender: <span class="body-text">Male</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                </div>
+            </div>  
+        </div>
+
+        <!-- Box right  -->
+        <div class="card flex-1 w-full sm:w-1/2 space-y-[16px]">
+            <div class="top-bar flex justify-between pb-3 border-b">
+                <div class="left flex items-center gap-4">
+                    <div class="icon icon-primary">
+                        <i class="fa-solid fa-phone text-[18px]"></i>
+                    </div>
+                        <h2 class="secondary-heading">Emergency Contact</h2>
+                </div>
+                <div class="right">
+                    <a href="" class="icon icon-primary">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="details flex flex-wrap flex-row gap-4 ">
+                <div class="detaildata flex-1  space-y-2 ">
+                    <h2 class="secondary-heading border-b p-1">Primary Contact</h2>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">Employee Parents</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">Parents</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                </div>
+                  <div class="detaildata flex-1 space-y-2 ">
+                    <h2 class="secondary-heading border-b p-1">Secondary  Contact</h2>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">Employee Parents</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">Parents</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                </div>
+            </div>  
+        </div>
+    </div>
+ <!-- start Section 2 from here  -->
+    <div class="section-1 flex flex-wrap justify-between gap-4">
+            <!-- Box left  -->
+        <div class="card flex-1 w-full sm:w-1/2 space-y-[16px]">
+            <div class="top-bar flex justify-between pb-3 border-b">
+                <div class="left flex items-center gap-4">
+                    <div class="icon icon-primary">
+                        <i class="fa-solid fa-building-columns text-[18px]"></i>
+                    </div>
+                        <h2 class="secondary-heading">Bank Account</h2>
+                </div>
+                <div class="right">
+                    <a href="" class="icon icon-primary">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="details gap-4 ">
+                <div class="detaildata  space-y-2 ">
+                    <p class="body-bold-text text-[18px] p-1 border-b">Account Holder Name:: <span class="body-text">Naira Muskan</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Account Number: <span class="body-text">DUMMY20522050525</span></p>
+                    <p class="body-bold-text  xt text-[18px] p-1 border-b">Bank Name: <span class="body-text">DUMMY Bank Of INDIA</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Branch Name: <span class="body-text">DUMMY Branch Delhi</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">IFSC Code: <span class="body-text">DBI000142026</span></p>
+                </div>
+            </div>  
+        </div>
+
+        <!-- Box right  -->
+         
+        
+    </div>
+
+</section>
+{% endblock %}

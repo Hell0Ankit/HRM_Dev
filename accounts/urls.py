@@ -7,7 +7,7 @@ urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),  
 
     # this class only showing utilities items 
-    path('utilities/', views.utilities, name='utilities'),  
+    path('', views.utilities, name='utilities'),  
 
 ]
 

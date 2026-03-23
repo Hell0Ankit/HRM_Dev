@@ -1,0 +1,83 @@
+{% load static %}
+<aside id="sidebar" class="w-64 bg-[var(--white)] border-r border-[var(--light)] flex-shrink-0 lg:block hidden">
+    <div class="p-6 h-16 flex items-center gap-2 border-b border-[var(--light)]">
+        <div class="logo ">
+           <img src="{% static 'images/logo/logo.png' %}" alt="logo" width="100%" height="auto" >
+        </div>
+    </div>
+            
+   <nav class="mt-4 px-4 space-y-3">
+        <!-- Dashboard -->
+        <a href="{% url 'em_dashboard' %}" class="flex items-center gap-3 px-3 py-2 body-bold-text font-[500] rounded-[6px] active:bg-[var(--primary-light)] hover:bg-[var(--primary-light)] bg-[var(--primary-light)] text-[var(--primary)]">
+            <i class="fas fa-th-large"></i> Emloyee Dashboards
+        </a>
+
+        <!-- Profile Dropdown -->
+        <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-solid fa-user"></i> Profile
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'personal_details'  %}" class="block py-[6px] text-link">— Personal Details</a>
+                <!-- <a href="{% url 'change_password'  %}" class="block py-[6px] text-link">— Change Password</a> -->
+                <a href="#" class="block py-[6px] text-link">— Logout</a>
+            </div>
+        </div>
+       <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-solid fa-fingerprint"></i> Attendance
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'my_attendance'  %}" class="block py-[6px] text-link">—  My Attendance</a>
+                <a href="#" class="block py-[6px] text-link">—  Punch In / Punch Out</a>
+            </div>
+        </div>
+
+        <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-solid fa-person-walking-arrow-right"></i> Leaves
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'leaves_application' %}" class="block py-[6px] text-link">—  Apply Leave</a>
+                <a href="{% url 'em_leaves_status' %}" class="block py-[6px] text-link">—  Leave History</a>
+            </div>
+        </div>
+
+         <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fas fa-umbrella-beach"></i> Holidays
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'em_holydays_listing'  %}" class="block py-[6px] text-link">—  Holidays List</a>
+            </div>
+        </div>
+
+        <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-regular fa-clipboard"></i> Forms & Requests
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="#" class="block py-[6px] text-link">—  General Form</a>
+            </div>
+        </div>
+</aside>

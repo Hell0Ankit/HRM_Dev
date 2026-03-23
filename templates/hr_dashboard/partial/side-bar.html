@@ -1,0 +1,45 @@
+{% load static %}
+<aside id="sidebar" class="w-64 bg-[var(--white)] border-r border-[var(--light)] flex-shrink-0 lg:block hidden">
+    <div class="p-6 h-16 flex items-center gap-2 border-b border-[var(--light)]">
+        <div class="logo ">
+           <img src="{% static 'images/logo/logo.png' %}" alt="logo" width="100%" height="auto" >
+        </div>
+    </div>
+            
+   <nav class="mt-4 px-4 space-y-3">
+        <!-- Dashboard -->
+        <a href="{% url 'hr_dashboard' %}" class="flex items-center gap-3 px-3 py-2 body-bold-text font-[500] rounded-[6px] active:bg-[var(--primary-light)] hover:bg-[var(--primary-light)] bg-[var(--primary-light)] text-[var(--primary)]">
+            <i class="fas fa-th-large"></i> HRM Dashboards
+        </a>
+        <!-- Employee Dropdown Button -->
+        <div class="menu">
+            <button class="togglemenu w-full flex items-center justify-between body-bold-text font-[500] gap-3 px-3 py-2 rounded-[6px] hover:bg-[var(--primary-light)]">
+                <span class="flex items-center gap-3">
+                <i class="fa-solid fa-users"></i> Employees
+                </span>
+                <i class="arrow fas fa-chevron-down text-sm transition-transform"></i>
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown ml-9 space-y-1 mt-1 text-sm text-gray-500 hidden">
+                <a href="{% url 'employee_listing'  %}" class="block py-[6px] text-link">— Employee</a>
+                <a href="{% url 'add_employee'  %}" class="block py-[6px] text-link">— Add Emloyees</a>
+            </div>
+        </div>
+
+        <!--Designations-->
+        <a href="{% url 'designations'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+                <i class="fa-solid fa-briefcase"></i> Designations</a>
+        <!--Attendance-->
+        <a href="{% url 'attendance_status'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+            <i class="fa-solid fa-fingerprint"></i> Attendance 
+        </a>
+
+        <!--leaves-->
+        <a href="{% url 'leaves_status'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+            <i class="fas fa-calendar-alt"></i> Leaves Status
+        </a>
+        <a href="{% url 'holydays_listing'  %}" class="flex items-center body-bold-text font-[500] gap-3 px-3 py-2  rounded-[6px]  hover:bg-[var(--primary-light)] ">
+           <i class="fas fa-umbrella-beach"></i> Holidays List
+        </a>
+    </nav>
+</aside>

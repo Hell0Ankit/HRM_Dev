@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}  {% endblock%}
+{% block extra_css %} {% endblock %}
+{% block content %}
+    <div class="flex h-screen overflow-hidden">  
+        {% include "em_dashboard/partial/em_side-bar.html" %}
+        <div class="flex-1 flex flex-col overflow-hidden">
+            {% include "em_dashboard/partial/em_header.html" %}
+            <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                {% block dasboard_contetnt %}
+                        
+
+                {% endblock  %}
+            </main>
+            {% include "em_dashboard/partial/em_footer.html" %}
+        </div>
+    </div>
+ {% endblock  %}
+    
