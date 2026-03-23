@@ -9,29 +9,9 @@ from django.http import HttpResponse
 
 @login_required
 def hr_dashboard(request):
-    if not request.user.is_hr():
-        return HttpResponse("No access")
-
-    return render(request, 'hr_dashboard/hr_dashboard.html')
-
-@login_required
-def create_employee(request):
-    if not request.user.is_hr():
-        return redirect('no_access')
-
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
-        User.objects.create_user(
-            username=username,
-            password=password,
-            role='employee'
-        )
-        return redirect('employee_list')
-
-    return render(request, 'hr_dashboard/employees/create_employee.html')
-
+    if request.user.role != 'hr':
+        return redirect('login')
+    return render(request, 'hr_dashboard/dashboard.html')
 
 # Create your views here.
 def employee_listing(request):

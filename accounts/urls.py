@@ -2,8 +2,8 @@ from django.urls import path
 from accounts import views
 
 urlpatterns = [
-    path('login/', views.login, name='login'),
-    path('signup/', views.signup, name='signup'),  
+    path('login/', views.user_login, name='login'),
+    path('create_employee/', views.create_employee, name='create_employee'),  
     path('change_password/', views.change_password, name='change_password'),  
     path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
 
