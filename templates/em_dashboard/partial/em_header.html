@@ -4,7 +4,7 @@
         <button id="toggleBtn" class="text-[var(--text-body)] hover:text-[var(--primary)]">
             <i class="fas fa-bars text-xl"></i>
         </button>
-        <h2 class="secondary-heading">Hello Thomas</h2>
+        <h2 class="secondary-heading">Hello {{ profile_data.full_name }}</h2>
     </div>
     <div class="flex items-center gap-6">
         <div class="hidden md:flex items-center w-64 px-4 py-2 border border-[var(--light)] rounded-full shadow-sm focus-within:ring-1 focus-within:ring-[var(--primary)] focus-within:border-[var(--primary)] transition">
@@ -12,10 +12,14 @@
             <button type="submit" class="ml-2 text-[var(--primary)] transition">  <i class="fas fa-search"></i></button>
         </div>
         <div class="flex items-center gap-2 border-l pl-4">
+            {% if profile_data.profile_image %}
+            <img src="{{ profile_data.profile_image }}" class="w-9 h-9 rounded-full">
+            {% else %}
             <img src="{% static 'images/profile/profile.jpg' %}" class="w-9 h-9 rounded-full">
+            {% endif %}
             <div class="text-left">
-                <p class="text-[var(--text-heading)] body-bold-text">Jhon Smith</p>
-                <span class="body-text"> Employee </span>
+                <p class="text-[var(--text-heading)] body-bold-text">{{ profile_data.full_name  }}</p>
+                <span class="body-text"> {{profile_data.designation}} </span>
             </div>
         </div>
     </div>

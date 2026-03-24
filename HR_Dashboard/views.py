@@ -33,9 +33,7 @@ def employee_listing(request):
     })
 
 
-def employee_details(request,id):
 
-    return render(request, 'hr_dashboard/employees/employee_details.html')
 
 def add_employee(request):
     return render(request, 'hr_dashboard/employees/add_employee.html')
@@ -54,9 +52,9 @@ def add_designations(request):
         designation_id = request.POST.get('designation_id')
         designation = request.POST.get('designation')
         if Designation.objects.filter(designation_id=designation_id).exists():
-             return HttpResponse("Designation_id already exists")
+            return HttpResponse("Designation_id already exists")
         if Designation.objects.filter(designation=designation).exists():
-             return HttpResponse("Designation already exists")
+            return HttpResponse("Designation already exists")
         else:
             Designation.objects.create(
                 designation_id=designation_id,
@@ -108,17 +106,37 @@ def holydays_listing(request):
 def add_employee_detail(request):
     if request.user.role != 'hr':
         return HttpResponse("Unauthorized", status=403)
-    
     users = User.objects.filter(role='employee')
 
     if request.method == 'POST':
         user_id = request.POST.get('user')
+        profile_image = request.FILES.get('profile_image')
         full_name = request.POST.get('full_name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
         employee_id = request.POST.get('employee_id')
         designation_id = request.POST.get('designation')
-        profile_image = request.FILES.get('profile_image')
+        joining_date= request.FILES.get('joining_date')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        birthday = request.POST.get('birthday')
+        gender = request.POST.get('gender')
+        address = request.POST.get('address')
+        primary_name = request.POST.get('primary_name')
+        primary_relation = request.POST.get('primary_relation')
+        primary_phone = request.POST.get('primary_phone')
+        primary_email = request.POST.get('primary_email')
+        primary_address = request.POST.get('primary_address')
+
+        secondary_name = request.POST.get('secondary_name')
+        secondary_relation = request.POST.get('secondary_relation')
+        secondary_phone = request.POST.get('secondary_phone')
+        secondary_email = request.POST.get('secondary_email')
+        secondary_address = request.POST.get('secondary_address')
+
+        account_holder = request.POST.get('account_holder')
+        account_number = request.POST.get('account_number')
+        bank_name = request.POST.get('bank_name')
+        branch_name = request.POST.get('branch_name')
+        ifsc_code = request.POST.get('ifsc_code')
 
         # Check if profile exists
         if EmployeeProfile.objects.filter(user_id=user_id).exists():
@@ -131,7 +149,28 @@ def add_employee_detail(request):
             phone=phone,
             employee_id=employee_id,
             designation_id=designation_id,
-            profile_image=profile_image
+            profile_image=profile_image,
+            joining_date=joining_date,
+            birthday=birthday,
+            gender=gender,
+            address=address,
+            primary_name=primary_name,
+            primary_relation=primary_relation,
+            primary_phone=primary_phone,
+            primary_email=primary_email,
+            primary_address=primary_address,
+
+            secondary_name=secondary_name,
+            secondary_relation=secondary_relation,
+            secondary_phone=secondary_phone,
+            secondary_email=secondary_email,
+            secondary_address=secondary_address,
+            account_holder=account_holder,
+            account_number=account_number,
+            bank_name=bank_name,
+            branch_name=branch_name,
+            ifsc_code=ifsc_code
+
         )
 
         return redirect('employee_listing')
@@ -144,7 +183,7 @@ def add_employee_detail(request):
 
 
 @login_required
-def employee_profile(request, user_id):
+def employee_details(request, user_id):
     if request.user.role != 'hr' and request.user.id != int(user_id):
         return HttpResponse("Unauthorized", status=403)
 
@@ -152,7 +191,10 @@ def employee_profile(request, user_id):
         profile = EmployeeProfile.objects.get(user_id=user_id)
     except EmployeeProfile.DoesNotExist:
         return HttpResponse("Profile not found", status=404)
-
-    return render(request, 'hr_dashboard/employees/employee_profile.html', {
+    return render(request, 'hr_dashboard/employees/employee_details.html',{
         'profile': profile
     })
+
+
+    
+    
