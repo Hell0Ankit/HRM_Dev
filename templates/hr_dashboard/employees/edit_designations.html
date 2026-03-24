@@ -1,0 +1,33 @@
+{% extends "hr_dashboard/partial/hr_base.html" %} 
+{% block title %} Edit  Designation {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
+        <form action="" method="POST" >
+        {% csrf_token %}
+        <h2 class="primary-heading py-6">Edit  Designation</h2>
+        <!-- Name -->
+            <div class="">
+                <div class="flex flex-wrap justify-between gap-4">
+                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Designation ID</label>
+                        <input type="text" value="{{ designation.designation_id }}"  name="designation_id" placeholder="DEID001" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Designation Name</label>
+                        <input type="text" value="{{ designation.designation }}" name="designation" placeholder="New Designation Name" class="input" />
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="p-0 mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        Update  Designation
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -2,7 +2,7 @@ from django.urls import path
 from EM_Dashboard import views
 
 urlpatterns = [
-    path('', views.em_dashboard, name='em_dashboard'),
+    path('employee-dashboard/', views.em_dashboard, name='em_dashboard'),
     path('personal_details/',views.personal_details , name='personal_details' ),
     path('my_attendance/',views.my_attendance , name='my_attendance' ),
     path('leaves_application/',views.leaves_application, name='leaves_application' ),

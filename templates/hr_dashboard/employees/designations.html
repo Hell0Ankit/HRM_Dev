@@ -1,18 +1,21 @@
 {% extends "hr_dashboard/partial/hr_base.html" %} 
-{% block title %}Designations {% endblock%}
+{% block title %} Employee Designations {% endblock%}
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
 <section class="container-dashboard space-y-[16px]">
-    
     <div class="section-3">
             <!-- Box left  -->
             <div class="card w-full">
                 <div class="top-bar flex justify-between">
                     <div class="left flex items-center gap-4">
-                        <div class="icon icon-primary">
-                            <i class="fa-solid fa-users text-[20px]"></i>
+                        <div class="icon icon-primary" >
+                            <a href="" class="fa-solid fa-users text-[20px]" title="Add Designations" ></a>
                          </div>
-                         <h2 class="secondary-heading">Department & Designations</h2>
+                         <h2 class="secondary-heading">Employee  Designations</h2>
+                    </div>
+
+                     <div class="right">
+                        <a href="{% url 'add_designations'  %}" class="btn-small btn-primary">  Add Designations</a>
                     </div>
                    
                 </div>
@@ -22,8 +25,8 @@
                         <!-- Header -->
                         <thead class="bg-[var(--primary-light)] body-bold-text border" >
                             <tr>
-                            <th class=" px-4 py-3"> Designation</th>
-                            <th class=" px-4 py-3"> Department</th>
+                            <th class=" px-4 py-3"> Designation ID</th>
+                            <th class=" px-4 py-3"> Employee Designation</th>
                             <th class=" px-4 py-3">Action</th>
                             </tr>
                         </thead>
@@ -31,40 +34,18 @@
                         <!-- Body -->
                         <tbody class="bg-[var(--light)] body-text ">
                             <!-- Row -->
+                            {% for designations_data in designations  %}
                             <tr class="border">
                             <!-- Admin -->
-                                <td class="px-4 py-3 ">Information Technology Department</td>
-                                <td class="px-4 py-3 ">Software Developer</td>
+                                <td class="px-4 py-3 ">{{designations_data.designation_id}}</td>
+                                <td class="px-4 py-3 ">{{designations_data.designation}}</td>
                                 <!-- Action -->
                                 <td class="px-4 py-3 flex gap-2">
-                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="{% url 'edit_designations' designations_data.id  %}" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="{% url 'delete_designation' designations_data.id  %}" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr>
-
-                            <!-- Row -->
-                             <tr class="border">
-                            <!-- Admin -->
-                                <td class="px-4 py-3 ">Information Technology Department</td>
-                                <td class="px-4 py-3 ">Software Developer</td>
-                                <!-- Action -->
-                                <td class="px-4 py-3 flex gap-2">
-                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                </td>
-                            </tr> 
-                             
-                            <!-- Row -->
-                             <tr class="border">
-                            <!-- Admin -->
-                                <td class="px-4 py-3 ">Information Technology Department</td>
-                                <td class="px-4 py-3 ">Software Developer</td>
-                                <!-- Action -->
-                                <td class="px-4 py-3 flex gap-2">
-                                    <a href="#" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

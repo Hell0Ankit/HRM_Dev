@@ -68,6 +68,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #  context_processors here 
+                'accounts.context_processors.user_role',
+                'HR_Dashboard.context_processors.designations_data',
             ],
         },
     },
