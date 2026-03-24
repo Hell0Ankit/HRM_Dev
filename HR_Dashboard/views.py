@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from accounts.models import User
-from HR_Dashboard.models import Designation
+from HR_Dashboard.models import Designation, EmployeeProfile
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
@@ -17,14 +17,31 @@ def hr_dashboard(request):
     return render(request, 'hr_dashboard/hr_dashboard.html')
 
 # Create your views here.
-def employee_listing(request):
-    return render(request, 'hr_dashboard/employees/employee_listing.html')
+# def employee_listing(request):
+#     return render(request, 'hr_dashboard/employees/employee_listing.html')
 
-def employee_details(request):
+
+
+@login_required
+def employee_listing(request):
+    if request.user.role != 'hr':
+        return HttpResponse("Unauthorized", status=403)
+
+    employees = EmployeeProfile.objects.all()  
+    return render(request, 'hr_dashboard/employees/employee_listing.html', {
+        'employees': employees
+    })
+
+
+def employee_details(request,id):
+
     return render(request, 'hr_dashboard/employees/employee_details.html')
 
 def add_employee(request):
     return render(request, 'hr_dashboard/employees/add_employee.html')
+
+
+
 
 
 
@@ -85,3 +102,57 @@ def holydays_listing(request):
     return render(request, 'hr_dashboard/employees/holydays_listing.html')
 
 
+
+
+@login_required
+def add_employee_detail(request):
+    if request.user.role != 'hr':
+        return HttpResponse("Unauthorized", status=403)
+    
+    users = User.objects.filter(role='employee')
+
+    if request.method == 'POST':
+        user_id = request.POST.get('user')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        employee_id = request.POST.get('employee_id')
+        designation_id = request.POST.get('designation')
+        profile_image = request.FILES.get('profile_image')
+
+        # Check if profile exists
+        if EmployeeProfile.objects.filter(user_id=user_id).exists():
+            return HttpResponse("Profile already exists")
+
+        EmployeeProfile.objects.create(
+            user_id=user_id,
+            full_name=full_name,
+            email=email,
+            phone=phone,
+            employee_id=employee_id,
+            designation_id=designation_id,
+            profile_image=profile_image
+        )
+
+        return redirect('employee_listing')
+
+    return render(request, 'hr_dashboard/employees/add_employee_detail.html', {
+        'users': users,
+        'designations': Designation.objects.all()  # send designations for dropdown
+    })
+
+
+
+@login_required
+def employee_profile(request, user_id):
+    if request.user.role != 'hr' and request.user.id != int(user_id):
+        return HttpResponse("Unauthorized", status=403)
+
+    try:
+        profile = EmployeeProfile.objects.get(user_id=user_id)
+    except EmployeeProfile.DoesNotExist:
+        return HttpResponse("Profile not found", status=404)
+
+    return render(request, 'hr_dashboard/employees/employee_profile.html', {
+        'profile': profile
+    })

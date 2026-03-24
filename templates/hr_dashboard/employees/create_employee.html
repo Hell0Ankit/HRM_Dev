@@ -14,8 +14,8 @@
             </div>
         </div>
         <!-- Heading -->
-        <h2 class="text-center secondary-heading mb-2"> Create Your Account  </h2>
-        <p class="text-center body-bold-text"> Join us and start your journey today </p>
+        <h2 class="text-center secondary-heading mb-2"> Create Employee Account  </h2>
+         <!-- <p class="text-center body-bold-text"> Join us and start your journey today </p>  -->
         <!-- Form -->
         <form method="POST" action="{% url 'create_employee' %}" class="space-y-2">
             {% csrf_token %}
@@ -44,10 +44,7 @@
                 Create Employee
             </button>
         </form>
-        <!-- Footer -->
-        <p class="text-center body-text mt-4"> Already have an account? 
-        <a href="{% url 'login'  %}" class="body-bold-text text-[var(--primary)]">Sign In</a>
-        </p>
+        
         <!-- Divider -->
         <div class="flex items-center my-5">
           <div class="flex-grow border-t"></div>

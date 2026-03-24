@@ -1,4 +1,3 @@
-
 {% extends "em_dashboard/partial/em_base.html" %} 
 {% load static %}
 {% block title %}Employee Profile Details {% endblock%}
@@ -24,13 +23,15 @@
 
             <div class="details flex flex-wrap flex-row gap-4 ">
                 <div class="img flex-1">
-                    <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="230px"  class="border">
+                {% if profile.profile_image %}
+                    <img src="{{ profile.profile_image.url  }}" alt="" width="230px"  class="border">
+                {% endif %}
                 </div>
                 <div class="detaildata flex-1 space-y-2 ">
                     <p class="body-bold-text text-[18px] p-1 border-b">Name: <span class="body-text">{{ profile.full_name }}</span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Department: <span class="body-text">{{ profile.full_name }}</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">EMID001</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">Chief Executive Officer</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">{{ profile.employee_id }}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">{{ profile.designation }} </span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">14JAN2026</span></p>
                 </div>
                 <div class="detaildata  flex-1 space-y-2 ">

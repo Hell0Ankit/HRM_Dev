@@ -5,146 +5,29 @@
 {% block dasboard_contetnt %}
  <section class="container-dashboard space-y-[16px]">
     <div class="employee flex flex-wrap gap-4 justify-start  pb-4">
+        {% for emp in employees %}
         <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-3">
             <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
+                {% if emp.profile_image %}
+                <img src="{{ emp.profile_image.url }}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
+                {% else %}
+                <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                    No Image
+                </div>
+                {% endif %}
             </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-            <p class="body-bold-text">JOB ID: <span class="body-text">ID300393</span></p>
+
+            <h2 class="secondary-heading">{{emp.full_name}}</h2>
+            <p class="body-bold-text">{{emp.full_name}}</p>
+            <p class="body-bold-text">JOB ID: <span class="body-text">{{emp.full_name}}</span></p>
              
             <div class=" flex gap-3 justify-center items-center">
             <a href="#" class="btn-small btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class="btn-small btn-secondary px-7"> View</a>
+            <a href="{% url 'employee_details' emp.user.id %}" class="btn-small btn-secondary px-7"> View</a>
             </div>
         </div>
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details' %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-
-
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-             <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
-
-        <div class="card w-full md:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)] 2xl:w-[calc((100%-3rem)/4)] text-center space-y-4">
-            <div class="img flex justify-center">
-                <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="100px" class="text-center mx-auto border-[var(--primary)] rounded-full">  
-            </div>
-            <h2 class="secondary-heading">Naira Muskan</h2>
-            <p class="body-bold-text">Chief Executive Officer</p>
-            <div class="social  flex justify-center gap-2">
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
-                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
-            </div>
-            <div class="btn">
-            <a href="#" class="btn btn-primary px-7"> Call</a>
-            <a href="{% url 'employee_details'  %}" class=" btn btn-secondary px-7"> View</a>
-            </div>
-        </div>
+        {% endfor %}
+        
     </div> 
   <!-- pagination -->
     <div class="pagination flex justify-center gap-2">

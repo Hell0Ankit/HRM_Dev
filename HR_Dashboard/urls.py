@@ -5,8 +5,8 @@ urlpatterns = [
     path('hr-dashboard/', views.hr_dashboard, name='hr_dashboard'),
    
     path('employee_listing/',views.employee_listing, name='employee_listing' ),
-    path('employee_details/',views.employee_details, name='employee_details' ),
-    path('add_employee/',views.add_employee, name='add_employee' ),
+    path('employee_details/<int:id>/',views.employee_details, name='employee_details' ),
+    path('add_employee_detail/',views.add_employee_detail, name='add_employee_detail' ),
     path('designations/',views.designations, name='designations' ),
     path('add_designations/',views.add_designations, name='add_designations' ),
     path('edit_designations/<int:id>/',views.edit_designations, name='edit_designations' ),

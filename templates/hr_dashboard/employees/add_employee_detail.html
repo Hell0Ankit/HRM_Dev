@@ -4,7 +4,8 @@
 {% block dasboard_contetnt %}
  <section class="container-dashboard space-y-[16px]">
     <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
-        <form action="" method="" >
+       <form action="" method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
         <h2 class="primary-heading py-6">Add New Employee Data</h2>
         <!-- Name -->
             <div class="">
@@ -12,23 +13,107 @@
                 <div class="flex flex-wrap justify-between gap-4">
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2"> Employee Full Name</label>
-                        <input type="text" placeholder="Enter your name" class="input" />
+                        <input type="text" placeholder="Enter your name" name ="full_name" class="input" />
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Employee Email ID</label>
-                        <input type="email" placeholder="Enter your Email" class="input" />
+                        <input type="email" placeholder="Enter your Email" name ="email" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Employee  ID</label>
+                        <input type="text" placeholder="Enter Employee ID" name="employee_id" class="input" />
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Employee Telephone </label>
-                        <input type="text" placeholder="Enter your telephone" class="input" />
+                        <input type="text" placeholder="Enter your telephone" name="phone" class="input" />
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2">Employee User Name</label>
-                        <input type="text" placeholder="Enter your Username" class="input" />
+                        <label class="body-bold-text block py-2">Employee Telephone </label>
+                        <input type="text" placeholder="Enter your telephone" name="phone" class="input" />
                     </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label>Designation</label>
+                        <select name="designation" class="input">
+                            <option value="">-- Select Designation --</option>
+                            {% for d in designations %}
+                            <option value="{{ d.id }}">{{ d.designation }}</option>
+                            {% endfor %}
+                        </select>
+                   </div> 
+                   <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Select User</label>
+                        <select class="input" name="user">
+                            <option value="">-- Select User --</option>
+                             {% for u in users %}
+                            <option value="{{ u.id }}">{{ u.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>  
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Profile Image</label>
+                        <input type="file" placeholder="Profile Image" name="profile_image" class="input" />
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="p-0 mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        Submit Details
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+
+<!--
+
+<form action="" method="" >
+        <h2 class="primary-heading py-6">Add New Employee Data</h2>
+       
+            <div class="">
+                <h2 class="secondary-heading py-3 flex items-center gap-4"> <i class="fa-solid fa-user text-[18px]"></i>Personal Information</h2>
+                <div class="flex flex-wrap justify-between gap-4">
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Employee Full Name</label>
+                        <input type="text" placeholder="Enter your name" name ="full_name" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Employee Email ID</label>
+                        <input type="email" placeholder="Enter your Email" name ="email" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Employee Telephone </label>
+                        <input type="text" placeholder="Enter your telephone" name="phone" class="input" />
+                    </div>
+
+                   <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Select User</label>
+                        <select class="input">
+                            <option value="">-- Select Department --</option>
+                            <option value="hr">HR (Human Resources)</option>
+                            <option value="it">IT (Information Technology)</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                            <option value="support">Customer Support</option>
+                        </select>
+                    </div>  
                     
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Employee ID</label>
@@ -171,7 +256,9 @@
                     </div>
                    
                 </div>
-                <!-- Button -->
+               
+
+
                 <div class="p-0 mt-4">
                     <button type="submit" class="btn btn-primary px-4">
                         Submit Details
@@ -179,6 +266,4 @@
                 </div>
             </div>
         </form>
-    </div>
-</section>
-{% endblock %}
+-->

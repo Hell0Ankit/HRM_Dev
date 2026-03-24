@@ -71,6 +71,7 @@ TEMPLATES = [
                 #  context_processors here 
                 'accounts.context_processors.user_role',
                 'HR_Dashboard.context_processors.designations_data',
+                
             ],
         },
     },

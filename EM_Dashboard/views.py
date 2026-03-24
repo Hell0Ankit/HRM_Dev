@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from HR_Dashboard.models import EmployeeProfile
 
 
 @login_required
@@ -10,10 +11,18 @@ def em_dashboard(request):
     return render(request, 'em_dashboard/em_dashboard.html')
 
 @login_required
-def personal_details(request):
-    if request.user.role != 'employee':
-        return HttpResponse("No access", status=403)
-    return render(request, 'em_dashboard/personal-details.html')
+def my_profile(request):
+    try:
+        profile = EmployeeProfile.objects.get(user=request.user)
+    except EmployeeProfile.DoesNotExist:
+        return HttpResponse("Profile not found", status=404)
+
+    return render(request, 'em_dashboard/my_profile.html', {
+        'profile': profile
+    })
+
+
+
 
 
 @login_required
@@ -21,6 +30,7 @@ def my_attendance(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
     return render(request, 'em_dashboard/my_attendance.html')
+
 
 @login_required
 def leaves_application(request):
@@ -41,3 +51,5 @@ def em_holydays_listing(request):
         return HttpResponse("No access", status=403)
 
     return render(request, 'em_dashboard/em_holydays_listing.html')
+
+

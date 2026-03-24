@@ -8,13 +8,11 @@ from django.contrib import messages
 
 
 def user_login(request):
-
     if request.user.is_authenticated:
         if request.user.role == 'hr':
             return redirect('hr_dashboard')
         else:
             return redirect('em_dashboard')
-
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
