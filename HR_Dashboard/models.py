@@ -20,10 +20,11 @@ class EmployeeProfile(models.Model):
     full_name = models.CharField(max_length=100,default="")
     employee_id = models.CharField(max_length=50, unique=True,)
     designation = models.ForeignKey(Designation, on_delete=models.SET_NULL, null=True)
-    joining_date = models.DateTimeField(default=timezone.now)
+    joining_date = models.DateTimeField(null=True, blank=True)
     phone = models.CharField(max_length=15, unique=True)
     email = models.EmailField(max_length=254, unique=True)
-    birthday =models.DateTimeField(default=timezone.now)
+    birthday = models.DateTimeField(null=True, blank=True)
+
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
     address = models.TextField((""))
 
@@ -51,3 +52,26 @@ class EmployeeProfile(models.Model):
 
     def __str__(self):
         return self.full_name
+    
+
+
+class Leave(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(EmployeeProfile, on_delete=models.CASCADE)
+    
+    leave_type = models.CharField(max_length=50)
+    from_date = models.DateField()
+    end_date = models.DateField()
+    leave_duration= models.CharField(max_length=50)
+    reason = models.TextField()
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    applied_at = models.DateTimeField(auto_now_add=True)
+    attach_doc = models.FileField(upload_to='leave_docs/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.status}"

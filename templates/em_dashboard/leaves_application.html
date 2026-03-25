@@ -13,7 +13,7 @@
                 <div class="flex flex-wrap justify-between gap-4">
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2"> Leave Type </label>
-                        <select class="input">
+                        <select class="input" name="leave_type">
                             <option value="">-- Select Leave Type --</option>
                             <option value="hr">Casual Leave</option>
                             <option value="it"> Sick Leave</option>
@@ -21,41 +21,30 @@
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2">Employee Email ID</label>
-                        <input type="email" placeholder="Enter your Email" class="input" />
-                    </div>
-
-                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">From Date </label>
-                        <input type="date" placeholder="From Date" class="input" />
+                        <input type="date" placeholder="From Date" name="from_date" class="input" />
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2">To Date</label>
-                        <input type="date" placeholder="To Date" class="input" />
+                        <label class="body-bold-text block py-2">End Date</label>
+                        <input type="date" placeholder="To Date" name="end_date" class="input" />
                     </div>
                     
-                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2">Total Days </label>
-                        <input type="text" placeholder="Total Days (Auto calculate)" class="input" />
-                    </div>
-                    
-
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Leave Duration</label>
                         <select class="input">
-                            <option value="">-- Leave Duration --</option>
-                            <option value="hr">Full Day</option>
-                            <option value="it">Half Day</option>
+                            <option value="" name="leave_duration">-- Leave Duration --</option>
+                            <option value="full_day">Full Day</option>
+                            <option value="half_day">Half Day</option>
                         </select>
                     </div>
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Reason for Leave </label>
-                        <input type="text" placeholder="Reason for Leave " class="input" />
+                        <input type="text" name="reason" placeholder="Reason for Leave " class="input" />
                     </div>
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Attachment File (Medical Certificate, etc.)</label>
-                        <input type="file" placeholder="Attachment (Medical Certificate, etc.)" class="input" />
+                        <input type="file" name="attach_doc" placeholder="Attachment (Medical Certificate, etc.)" class="input" />
                     </div>
                     
                 </div>

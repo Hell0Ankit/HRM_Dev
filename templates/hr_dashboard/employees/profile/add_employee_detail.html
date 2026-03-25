@@ -49,6 +49,15 @@
                             {% endfor %}
                         </select>
                     </div>  
+
+                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Select User</label>
+                        <select class="input" name="gender">
+                            <option value="">-- Select Gender --</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div> 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Profile Image</label>
                         <input type="file" placeholder="Profile Image" name="profile_image" class="input" />
@@ -59,107 +68,107 @@
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2">Birthday  </label>
-                        <input type="date" placeholder="Joining Date" name="joining_date" class="input" />
+                        <label class="body-bold-text block py-2">DOB  </label>
+                        <input type="date" placeholder="birthday" name="birthday" class="input" />
                     </div>
 
                     <div class="w-full">
                         <label class="body-bold-text block py-2">Address</label>
                         <textarea name="address" id="" class="input"></textarea>
                     </div>
+                </div>
                     <!-- Pimary Contact -->
                     <h2 class="secondary-heading py-3 flex items-center gap-4"> <i class="fa fa-address-book text-[18px]" aria-hidden="true"></i>Primary Contact</h2> 
                 
-                    <div class="flex flex-wrap justify-between gap-4">
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2"> Name </label>
-                            <input type="text" placeholder="Name" name ="primary_name" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Relationship</label>
-                            <input type="text" name="primary_relation" placeholder="Ex. Mother, Father etc." class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Telephone </label>
-                            <input type="text" name="primary_phone" placeholder="Telephone" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Email</label>
-                            <input type="Email" name="primary_email" placeholder="Email" class="input" />
-                        </div>
-                        
-                        <div class="w-full">
-                            <label class="body-bold-text block py-2">Address</label>
-                            <textarea name="" name="primary_address" id="" class="input"></textarea>
-                        </div>
+                <div class="flex flex-wrap justify-between gap-4">
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Name </label>
+                        <input type="text" placeholder="Name" name ="primary_name" class="input" />
                     </div>
 
-                    <!-- secondary Contact -->
-
-                    <h2 class="secondary-heading py-3 flex items-center gap-4"> <i class="fa fa-address-book text-[18px]" aria-hidden="true"></i>Secondary Contact</h2>
-
-                    <div class="flex flex-wrap justify-between gap-4">
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2"> Name </label>
-                            <input type="text" placeholder="Name" name="secondary_name" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Relationship</label>
-                            <input type="text" name="secondary_relation" placeholder="Ex. Mother, Father etc." class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Telephone </label>
-                            <input type="text"  name="secondary_phone" placeholder="Telephone" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Email</label>
-                            <input type="Email" name="secondary_email"  placeholder="Email" class="input" />
-                        </div>
-                        
-                        <div class="w-full">
-                            <label class="body-bold-text block py-2">Address</label>
-                            <textarea name="secondary_address" id="" class="input"></textarea>
-                        </div>
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Relationship</label>
+                        <input type="text" name="primary_relation" placeholder="Ex. Mother, Father etc." class="input" />
                     </div>
 
-                    <!-- Bank Account Details -->
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Telephone </label>
+                        <input type="text" name="primary_phone" placeholder="Telephone" class="input" />
+                    </div>
 
-                    <h2 class="secondary-heading py-3 flex items-center gap-4">  <i class="fa-solid fa-building-columns text-[18px]"></i> Bank Account</h2>
-
-                    <div class="flex flex-wrap justify-between gap-4">
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2"> Account Holder Name </label>
-                            <input type="text" placeholder="Account Holder Name"  name="account_holder" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Account Number</label>
-                            <input type="text" placeholder="Account Number"  name="account_number" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Bank Name </label>
-                            <input type="text" placeholder="Bank Name"  name="bank_name" class="input" />
-                        </div>
-
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">Branch Name</label>
-                            <input type="text" placeholder="Branch Name"  name="branch_name" class="input" />
-                        </div>
-                        
-                        <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                            <label class="body-bold-text block py-2">IFSC Code</label>
-                            <input type="text" placeholder="IFSC Code:"   name="ifsc_code" class="input" />
-                        </div>
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Email</label>
+                        <input type="Email" name="primary_email" placeholder="Email" class="input" />
+                    </div>
+                    
+                    <div class="w-full">
+                        <label class="body-bold-text block py-2">Address</label>
+                        <textarea name="" name="primary_address" id="" class="input"></textarea>
                     </div>
                 </div>
-                <!-- Button -->
+
+                <!-- secondary Contact -->
+
+                <h2 class="secondary-heading py-3 flex items-center gap-4"> <i class="fa fa-address-book text-[18px]" aria-hidden="true"></i>Secondary Contact</h2>
+
+                <div class="flex flex-wrap justify-between gap-4">
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Name </label>
+                        <input type="text" placeholder="Name" name="secondary_name" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Relationship</label>
+                        <input type="text" name="secondary_relation" placeholder="Ex. Mother, Father etc." class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Telephone </label>
+                        <input type="text"  name="secondary_phone" placeholder="Telephone" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Email</label>
+                        <input type="Email" name="secondary_email"  placeholder="Email" class="input" />
+                    </div>
+                    
+                    <div class="w-full">
+                        <label class="body-bold-text block py-2">Address</label>
+                        <textarea name="secondary_address" id="" class="input"></textarea>
+                    </div>
+                </div>
+
+                <!-- Bank Account Details -->
+
+                <h2 class="secondary-heading py-3 flex items-center gap-4">  <i class="fa-solid fa-building-columns text-[18px]"></i> Bank Account</h2>
+
+                <div class="flex flex-wrap justify-between gap-4">
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2"> Account Holder Name </label>
+                        <input type="text" placeholder="Account Holder Name"  name="account_holder" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Account Number</label>
+                        <input type="text" placeholder="Account Number"  name="account_number" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Bank Name </label>
+                        <input type="text" placeholder="Bank Name"  name="bank_name" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Branch Name</label>
+                        <input type="text" placeholder="Branch Name"  name="branch_name" class="input" />
+                    </div>
+                    
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">IFSC Code</label>
+                        <input type="text" placeholder="IFSC Code:"   name="ifsc_code" class="input" />
+                    </div>
+                </div>
+                    <!-- Button -->
                 <div class="p-0 mt-4">
                     <button type="submit" class="btn btn-primary px-4">
                         Submit Details

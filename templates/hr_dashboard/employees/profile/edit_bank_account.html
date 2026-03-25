@@ -1,0 +1,47 @@
+{% extends "hr_dashboard/partial/hr_base.html" %} 
+{% block title %} Edit Bank Account Dtails {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
+      <form action="" method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+            <h2 class="primary-heading py-6">Edit Bank Account Dtails</h2>
+            <!-- Name -->
+            <div class="flex flex-wrap justify-between gap-4">
+                <div class="flex flex-wrap justify-between gap-4">
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Account Holder Name </label>
+                        <input type="text" value="{{profile.account_holder }}"  name="account_holder" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Account Number</label>
+                        <input type="text" value="{{profile.account_number }}"  name="account_number" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Bank Name </label>
+                        <input type="text" value="{{profile.bank_name }}"  name="bank_name" class="input" />
+                    </div>
+
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">Branch Name</label>
+                        <input type="text" value="{{profile.branch_name }}"  name="branch_name" class="input" />
+                    </div>
+                    
+                    <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                        <label class="body-bold-text block py-2">IFSC Code</label>
+                        <input type="text" value="{{profile.ifsc_code }}"  name="ifsc_code" class="input" />
+                    </div>
+                </div>   
+            </div>
+            <div class="p-0 mt-4">
+                <button type="submit" class="btn btn-primary px-4">
+                        Save Updates
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

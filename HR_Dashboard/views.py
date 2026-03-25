@@ -1,13 +1,9 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from accounts.models import User
-from HR_Dashboard.models import Designation, EmployeeProfile
+from HR_Dashboard.models import Designation, EmployeeProfile, Leave
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.contrib import messages
 
-# Create your views here.
-# def hr_dashboard(request):
-#     return render(request, 'hr_dashboard/hr_dashboard.html' )
 
 
 @login_required
@@ -15,12 +11,6 @@ def hr_dashboard(request):
     if request.user.role != 'hr':
         return redirect('login')
     return render(request, 'hr_dashboard/hr_dashboard.html')
-
-# Create your views here.
-# def employee_listing(request):
-#     return render(request, 'hr_dashboard/employees/employee_listing.html')
-
-
 
 @login_required
 def employee_listing(request):
@@ -32,17 +22,7 @@ def employee_listing(request):
         'employees': employees
     })
 
-
-
-
-def add_employee(request):
-    return render(request, 'hr_dashboard/employees/add_employee.html')
-
-
-
-
-
-
+@login_required
 def designations(request):
     return render(request, 'hr_dashboard/employees/designations.html')
 
@@ -63,7 +43,6 @@ def add_designations(request):
         return redirect('designations')
     return render(request, 'hr_dashboard/employees/add_designations.html')
 
-
 @login_required
 def edit_designations(request, id):
     designation_obj = get_object_or_404(Designation, id=id)
@@ -82,24 +61,11 @@ def edit_designations(request, id):
         'designation': designation_obj
     })
 
-
 @login_required
 def delete_designation(request, id):
     designation_obj = get_object_or_404(Designation, id=id)
     designation_obj.delete()
     return redirect('designations')
-
-
-def attendance_status(request):
-    return render(request, 'hr_dashboard/employees/attendance_status.html')
-
-def leaves_status(request):
-    return render(request, 'hr_dashboard/employees/leaves_status.html')
-
-def holydays_listing(request):
-    return render(request, 'hr_dashboard/employees/holydays_listing.html')
-
-
 
 
 @login_required
@@ -120,6 +86,7 @@ def add_employee_detail(request):
         birthday = request.POST.get('birthday')
         gender = request.POST.get('gender')
         address = request.POST.get('address')
+
         primary_name = request.POST.get('primary_name')
         primary_relation = request.POST.get('primary_relation')
         primary_phone = request.POST.get('primary_phone')
@@ -154,6 +121,7 @@ def add_employee_detail(request):
             birthday=birthday,
             gender=gender,
             address=address,
+
             primary_name=primary_name,
             primary_relation=primary_relation,
             primary_phone=primary_phone,
@@ -165,28 +133,81 @@ def add_employee_detail(request):
             secondary_phone=secondary_phone,
             secondary_email=secondary_email,
             secondary_address=secondary_address,
+
             account_holder=account_holder,
             account_number=account_number,
             bank_name=bank_name,
             branch_name=branch_name,
             ifsc_code=ifsc_code
-
         )
-
         return redirect('employee_listing')
-
-    return render(request, 'hr_dashboard/employees/add_employee_detail.html', {
+    return render(request, 'hr_dashboard/employees/profile/add_employee_detail.html', {
         'users': users,
         'designations': Designation.objects.all()  # send designations for dropdown
+    })
+
+@login_required
+def edit_personal_detail(request,id):
+    profile = get_object_or_404(EmployeeProfile, id=id)
+    if request.method == 'POST':
+        profile.full_name = request.POST.get('full_name')
+        profile.email = request.POST.get('email')
+        profile.phone = request.POST.get('phone')
+        profile.gender = request.POST.get('gender')
+        new_image = request.FILES.get('profile_image')
+        if new_image:
+            profile.profile_image = new_image
+        profile.birthday = request.POST.get('birthday')
+        profile.address = request.POST.get('address')
+        profile.save()
+        return redirect('employee_details', user_id=profile.user.id)
+    return render(request, 'hr_dashboard/employees/profile/edit_personal_detail.html', {
+        'profile': profile
+    })
+
+@login_required
+def edit_emergency_contact(request,id):
+    profile = get_object_or_404(EmployeeProfile, id=id)
+    if request.method == 'POST':
+        profile.primary_name = request.POST.get('primary_name')
+        profile.primary_relation = request.POST.get('primary_relation')
+        profile.primary_phone = request.POST.get('primary_phone')
+        profile.primary_email = request.POST.get('primary_email')
+        profile.primary_address = request.POST.get('primary_address')
+
+        # SECONDARY CONTACT
+        profile.secondary_name = request.POST.get('secondary_name')
+        profile.secondary_relation = request.POST.get('secondary_relation')
+        profile.secondary_phone = request.POST.get('secondary_phone')
+        profile.secondary_email = request.POST.get('secondary_email')
+        profile.secondary_address = request.POST.get('secondary_address')
+        profile.save()
+        return redirect('employee_details', user_id=profile.user.id)
+    return render(request, 'hr_dashboard/employees/profile/edit_emergency_contact.html', {
+        'profile': profile
     })
 
 
 
 @login_required
+def edit_bank_account(request,id):
+    profile = get_object_or_404(EmployeeProfile, id=id)
+    if request.method == 'POST':
+        profile.account_holder = request.POST.get('account_holder')
+        profile.account_number = request.POST.get('account_number')
+        profile.bank_name = request.POST.get('bank_name')
+        profile.branch_name = request.POST.get('branch_name')
+        profile.ifsc_code = request.POST.get('ifsc_code')
+        profile.save()
+        return redirect('employee_details', user_id=profile.user.id)
+    return render(request, 'hr_dashboard/employees/profile/edit_bank_account.html', {
+        'profile': profile
+    })
+
+@login_required
 def employee_details(request, user_id):
     if request.user.role != 'hr' and request.user.id != int(user_id):
         return HttpResponse("Unauthorized", status=403)
-
     try:
         profile = EmployeeProfile.objects.get(user_id=user_id)
     except EmployeeProfile.DoesNotExist:
@@ -197,4 +218,23 @@ def employee_details(request, user_id):
 
 
     
-    
+def attendance_status(request):
+    return render(request, 'hr_dashboard/employees/attendance_status.html')
+
+def leaves_status(request):
+    return render(request, 'hr_dashboard/employees/leaves_status.html')
+
+@login_required
+def hr_leave_list(request):
+    if request.user.role != 'hr':
+        return HttpResponse("Unauthorized")
+
+    leaves = Leave.objects.select_related('user', 'profile').all()
+
+    return render(request, 'hr/leave_list.html', {
+        'leaves': leaves
+    })
+
+def holydays_listing(request):
+    return render(request, 'hr_dashboard/employees/holydays_listing.html')
+

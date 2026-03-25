@@ -1,0 +1,76 @@
+{% extends "hr_dashboard/partial/hr_base.html" %} 
+{% block title %} Edit Emergency Contact {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
+      <form action="" method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+            <h2 class="primary-heading py-6">Edit Emergency Contact</h2>
+            <!-- Name -->
+             <div class="flex flex-wrap justify-between gap-4">
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2"> Name </label>
+                    <input type="text" placeholder="Name" value="{{profile.primary_name }}" name ="primary_name" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Relationship</label>
+                    <input type="text" name="primary_relation" value="{{profile.primary_relation }}"  placeholder="Ex. Mother, Father etc." class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Telephone </label>
+                    <input type="text" name="primary_phone" value="{{profile.primary_phone}}" placeholder="Telephone" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Email</label>
+                    <input type="Email" name="primary_email" value="{{profile.primary_email }}" placeholder="Email" class="input" />
+                </div>
+                
+                <div class="w-full">
+                    <label class="body-bold-text block py-2">Address</label>
+                    <textarea name="primary_address"  id="" class="input">{{ profile.primary_address}}</textarea>
+                </div>
+            </div>
+
+            <!-- secondary Contact -->
+
+            <h2 class="secondary-heading py-3 flex items-center gap-4"> <i class="fa fa-address-book text-[18px]" aria-hidden="true"></i>Secondary Contact</h2>
+
+            <div class="flex flex-wrap justify-between gap-4">
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2"> Name </label>
+                    <input type="text" placeholder="Name" value="{{profile.secondary_name }}" name="secondary_name" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Relationship</label>
+                    <input type="text" name="secondary_relation" value="{{profile.secondary_relation }}" placeholder="Ex. Mother, Father etc." class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Telephone </label>
+                    <input type="text"  name="secondary_phone" value="{{profile.secondary_phone }}" placeholder="Telephone" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Email</label>
+                    <input type="Email" name="secondary_email" value="{{profile.secondary_email }}"  placeholder="Email" class="input" />
+                </div>
+                
+                <div class="w-full">
+                    <label class="body-bold-text block py-2">Address</label>
+                    <textarea name="secondary_address" id="" class="input">{{ profile.secondary_address }}</textarea>
+                </div>
+            </div>
+            <div class="p-0 mt-4">
+                <button type="submit" class="btn btn-primary px-4">
+                     Save Updates
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

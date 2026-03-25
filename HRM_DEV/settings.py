@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'HR_Dashboard',
     'EM_Dashboard',
+    'leave_management',
 ]
 
 MIDDLEWARE = [

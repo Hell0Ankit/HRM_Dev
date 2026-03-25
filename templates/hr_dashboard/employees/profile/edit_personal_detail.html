@@ -1,0 +1,63 @@
+{% extends "hr_dashboard/partial/hr_base.html" %} 
+{% block title %} Edit Personal Information {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
+      <form action="" method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+            <h2 class="primary-heading py-6">Edit Personal Information</h2>
+            <!-- Name -->
+            <div class="flex flex-wrap justify-between gap-4">
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2"> Employee Full Name</label>
+                    <input type="text" placeholder="Enter your name" value="{{profile.full_name}}" name ="full_name" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Employee Email ID</label>
+                    <input type="email" placeholder="Enter your Email"  value="{{profile.email}}" name ="email" class="input" />
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Employee Telephone </label>
+                    <input type="text" placeholder="Enter your telephone" value="{{profile.phone}}" name="phone" class="input" />
+                </div>  
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Select Gender</label>
+                    <select class="input" name="gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male" >Male</option>
+                        <option value="Female" >Female</option>
+                    </select>
+                </div> 
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Profile Image</label>
+                    {% if profile.profile_image %}
+                        <img src="{{ profile.profile_image.url }}" width="100">
+                    {% else %}
+                    <input type="file" placeholder="Profile Image" name="profile_image" class="input" />
+                    {% endif %}
+                </div>
+
+                <div class="xl:w-[calc((100%-1rem)/2)] w-full">
+                    <label class="body-bold-text block py-2">Birthday  </label>
+                    <input type="date" name="birthday" value="{{ profile.birthday|date:'Y-m-d' }}" class="input" />
+                </div>
+
+                <div class="w-full">
+                    <label class="body-bold-text block py-2">Address</label>
+                    <textarea name="address" id="" class="input"> {{profile.address}} </textarea>
+                </div>
+                <div class="p-0 mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        Save Updates
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

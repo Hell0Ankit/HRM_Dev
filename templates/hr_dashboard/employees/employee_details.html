@@ -16,7 +16,7 @@
                         <h2 class="secondary-heading">Personal Information</h2>
                 </div>
                 <div class="right">
-                    <a href="" class="icon icon-primary">
+                    <a href="{% url 'edit_personal_detail' profile.id %}" class="icon icon-primary">
                         <i class="fa-solid fa-pen"></i>
                     </a>
                 </div>
@@ -24,20 +24,22 @@
 
             <div class="details flex flex-wrap flex-row gap-4 ">
                 <div class="img flex-1">
-                    <img src="{% static 'images/profile/profile.jpg' %}" alt="" width="230px"  class="border">
+                    {% if profile.profile_image %}
+                        <img src="{{ profile.profile_image.url  }}" alt="" width="230px"  class="border">
+                    {% endif %}
                 </div>
                 <div class="detaildata flex-1 space-y-2 ">
-                    <p class="body-bold-text text-[18px] p-1 border-b">Name: <span class="body-text">Naira Muskan</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">EMID001</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">Chief Executive Officer</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">14JAN2026</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name: <span class="body-text">{{profile.full_name}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">{{profile.employee_id}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">{{profile.designation}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">{{profile.joining_date}}</span></p>
                 </div>
                 <div class="detaildata  flex-1 space-y-2 ">
-                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Birthday:<span class="body-text">28Dec2002</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Gender: <span class="body-text">Male</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:{{profile.phone}}" class="body-text text-link">{{profile.phone}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:{{profile.email}}" class="body-text text-link">{{profile.email}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Birthday:<span class="body-text">{{profile.birthday}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Gender: <span class="body-text">{{profile.gender}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">{{profile.address}}</span></p>
                 </div>
             </div>  
         </div>
@@ -52,7 +54,7 @@
                         <h2 class="secondary-heading">Emergency Contact</h2>
                 </div>
                 <div class="right">
-                    <a href="" class="icon icon-primary">
+                    <a href="{% url 'edit_emergency_contact' profile.id %}" class="icon icon-primary">
                         <i class="fa-solid fa-pen"></i>
                     </a>
                 </div>
@@ -61,19 +63,19 @@
             <div class="details flex flex-wrap flex-row gap-4 ">
                 <div class="detaildata flex-1  space-y-2 ">
                     <h2 class="secondary-heading border-b p-1">Primary Contact</h2>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">Employee Parents</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">Parents</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">{{profile.primary_name}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">{{profile.primary_relation}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:{{profile.primary_phone}}" class="body-text text-link">+{{profile.primary_phone}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:{{profile.primary_email}}" class="body-text text-link">{{profile.primary_email}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">{{profile.primary_address}}</span></p>
                 </div>
                   <div class="detaildata flex-1 space-y-2 ">
                     <h2 class="secondary-heading border-b p-1">Secondary  Contact</h2>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">Employee Parents</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">Parents</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:15551234567" class="body-text text-link">+15551234567</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:ex@gmail.com" class="body-text text-link">ex@gmail.com</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">Address here....</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Name:<span class="body-text">{{profile.secondary_name}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Relationship:<span class="body-text">{{profile.secondary_relation}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:{{profile.secondary_phone}}" class="body-text text-link">{{profile.secondary_phone}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:{{profile.secondary_email}}" class="body-text text-link">{{profile.secondary_email}}</a></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">{{profile.secondary_address}}</span></p>
                 </div>
             </div>  
         </div>
@@ -90,7 +92,7 @@
                         <h2 class="secondary-heading">Bank Account</h2>
                 </div>
                 <div class="right">
-                    <a href="" class="icon icon-primary">
+                    <a href="{% url 'edit_bank_account' profile.id %}" class="icon icon-primary">
                         <i class="fa-solid fa-pen"></i>
                     </a>
                 </div>
@@ -98,11 +100,11 @@
 
             <div class="details gap-4 ">
                 <div class="detaildata  space-y-2 ">
-                    <p class="body-bold-text text-[18px] p-1 border-b">Account Holder Name:: <span class="body-text">Naira Muskan</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Account Number: <span class="body-text">DUMMY20522050525</span></p>
-                    <p class="body-bold-text  xt text-[18px] p-1 border-b">Bank Name: <span class="body-text">DUMMY Bank Of INDIA</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Branch Name: <span class="body-text">DUMMY Branch Delhi</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">IFSC Code: <span class="body-text">DBI000142026</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Account Holder Name:: <span class="body-text">{{profile.account_holder}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Account Number: <span class="body-text">{{profile.account_number}}</span></p>
+                    <p class="body-bold-text  xt text-[18px] p-1 border-b">Bank Name: <span class="body-text">{{profile.bank_name}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Branch Name: <span class="body-text">{{profile.branch_name}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">IFSC Code: <span class="body-text">{{profile.ifsc_code}}</span></p>
                 </div>
             </div>  
         </div>
