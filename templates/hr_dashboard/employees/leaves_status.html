@@ -70,13 +70,12 @@
                         <!-- Header -->
                         <thead class="bg-[var(--primary-light)] body-bold-text border" >
                             <tr>
-                            <th class=" px-4 py-3"> Srnnn No.</th>
+                            <th class=" px-4 py-3"> Sr. No.</th>
                             <th class=" px-4 py-3"> Employee ID</th>
                             <th class=" px-4 py-3"> Employee Name</th>
                             <th class=" px-4 py-3"> Leave Type</th>
                             <th class=" px-4 py-3">From Date</th>
                             <th class=" px-4 py-3">To Date</th>
-                            <th class=" px-4 py-3">Total Days</th>
                             <th class=" px-4 py-3">Applied On</th>
                             <th class=" px-4 py-3">Status</th>
                             </tr>
@@ -85,59 +84,27 @@
                         <!-- Body -->
                         <tbody class="bg-[var(--light)] body-text ">
                             <!-- Row -->
+                            {% for leave in leaves %}
                             <tr class="border">
-                            <!-- Admin -->
-                            <td class="px-4 py-3 ">1</td>
-                            <td class="px-4 py-3 ">EMID001</td>
-                            <td class="px-4 py-3 ">Employee 1</td>
-                            <td class="px-4 py-3 ">Casual Leave </td>
-                            <td class="px-4 py-3 ">12Feb2026 </td>
-                            <td class="px-4 py-3 ">18Feb2026 </td>
-                            <td class="px-4 py-3 ">8 Days</td>
-                            <td class="px-4 py-3 ">6Feb2026 </td>
-                            <td class="px-4 py-3 status   "> <span class="status-tag bg-[var(--success)] ">Approve</span></td>
+                                <!-- Admin -->
+                                <td class="px-4 py-3 ">{{forloop.counter}}</td>
+                                <td class="px-4 py-3 ">{{ leave.profile.full_name }}</td>
+                                <td class="px-4 py-3 ">{{ leave.profile.employee_id }}</td>
+                                <td class="px-4 py-3 ">{{ leave.leave_type }} </td>
+                                <td class="px-4 py-3 ">{{ leave.from_date }} </td>
+                                <td class="px-4 py-3 ">{{ leave.end_date }} </td>
+                                <td class="px-4 py-3 ">{{ leave.applied_at }} </td>
+                                <td class="px-4 py-3 status ">
+                                    {% if leave.status == 'pending' %}
+                                        <span class="status-tag bg-[var(--warning)] ">Pending</span>
+                                    {% elif leave.status == 'approved' %}
+                                        <span class="status-tag bg-[var(--success)] ">Approve</span>
+                                    {% else %}
+                                        <span class="status-tag bg-[var(--warning)] ">Rejected</span>
+                                    {% endif %}
+                                </td>
                             </tr>
-                            <!-- Row -->
-                            <tr class="border">
-                            <!-- Admin -->
-                            <td class="px-4 py-3 ">1</td>
-                            <td class="px-4 py-3 ">EMID001</td>
-                            <td class="px-4 py-3 ">Employee 1</td>
-                            <td class="px-4 py-3 ">Casual Leave </td>
-                            <td class="px-4 py-3 ">12Feb2026 </td>
-                            <td class="px-4 py-3 ">18Feb2026 </td>
-                            <td class="px-4 py-3 ">8 Days</td>
-                            <td class="px-4 py-3 ">6Feb2026 </td>
-                            <td class="px-4 py-3 status   "> <span class="status-tag bg-[var(--warning)] ">Pending</span></td>
-                            </tr>
-
-                            <!-- Row -->
-                            <tr class="border">
-                            <!-- Admin -->
-                            <td class="px-4 py-3 ">1</td>
-                            <td class="px-4 py-3 ">EMID001</td>
-                            <td class="px-4 py-3 ">Employee 1</td>
-                            <td class="px-4 py-3 ">Casual Leave </td>
-                            <td class="px-4 py-3 ">12Feb2026 </td>
-                            <td class="px-4 py-3 ">18Feb2026 </td>
-                            <td class="px-4 py-3 ">8 Days</td>
-                            <td class="px-4 py-3 ">6Feb2026 </td>
-                            <td class="px-4 py-3 status   "> <span class="status-tag bg-[var(--danger)] ">Rejected</span></td>
-                            </tr>
-
-                            <!-- Row -->
-                            <tr class="border">
-                            <!-- Admin -->
-                            <td class="px-4 py-3 ">1</td>
-                            <td class="px-4 py-3 ">EMID001</td>
-                            <td class="px-4 py-3 ">Employee 1</td>
-                            <td class="px-4 py-3 ">Casual Leave </td>
-                            <td class="px-4 py-3 ">12Feb2026 </td>
-                            <td class="px-4 py-3 ">18Feb2026 </td>
-                            <td class="px-4 py-3 ">8 Days</td>
-                            <td class="px-4 py-3 ">6Feb2026 </td>
-                            <td class="px-4 py-3 status   "> <span class="status-tag bg-[var(--success)] ">Approve</span></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

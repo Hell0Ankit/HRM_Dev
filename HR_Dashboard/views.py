@@ -4,8 +4,6 @@ from HR_Dashboard.models import Designation, EmployeeProfile, Leave
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-
-
 @login_required
 def hr_dashboard(request):
     if request.user.role != 'hr':
@@ -66,7 +64,6 @@ def delete_designation(request, id):
     designation_obj = get_object_or_404(Designation, id=id)
     designation_obj.delete()
     return redirect('designations')
-
 
 @login_required
 def add_employee_detail(request):
@@ -187,8 +184,6 @@ def edit_emergency_contact(request,id):
         'profile': profile
     })
 
-
-
 @login_required
 def edit_bank_account(request,id):
     profile = get_object_or_404(EmployeeProfile, id=id)
@@ -221,19 +216,40 @@ def employee_details(request, user_id):
 def attendance_status(request):
     return render(request, 'hr_dashboard/employees/attendance_status.html')
 
-def leaves_status(request):
-    return render(request, 'hr_dashboard/employees/leaves_status.html')
 
 @login_required
-def hr_leave_list(request):
+def leaves_status(request):
     if request.user.role != 'hr':
-        return HttpResponse("Unauthorized")
+        return HttpResponse("No access", status=403)
 
-    leaves = Leave.objects.select_related('user', 'profile').all()
+    leaves = Leave.objects.all().order_by('-applied_at')
+    return render(request, 'hr_dashboard/employees/leaves_status.html', {'leaves': leaves})
 
-    return render(request, 'hr/leave_list.html', {
-        'leaves': leaves
-    })
+@login_required
+def approve_leave(request, id):
+    if request.user.role != 'hr':
+        return HttpResponse("No access", status=403)
+
+    leave = get_object_or_404(Leave, id=id)
+    leave.status = 'approved'
+    leave.save()
+
+    return redirect('leaves_status')
+
+
+@login_required
+def reject_leave(request, id):
+    if request.user.role != 'hr':
+        return HttpResponse("No access", status=403)
+
+    leave = get_object_or_404(Leave, id=id)
+    leave.status = 'rejected'
+    leave.save()
+
+    return redirect('leaves_status')
+
+
+
 
 def holydays_listing(request):
     return render(request, 'hr_dashboard/employees/holydays_listing.html')

@@ -10,6 +10,7 @@ def em_dashboard(request):
         return HttpResponse("Unauthorized User", status=403)  
     return render(request, 'em_dashboard/em_dashboard.html')
 
+
 @login_required
 def my_profile(request):
     try:
@@ -22,9 +23,6 @@ def my_profile(request):
     })
 
 
-
-
-
 @login_required
 def my_attendance(request):
     if request.user.role != 'employee':
@@ -32,29 +30,59 @@ def my_attendance(request):
     return render(request, 'em_dashboard/my_attendance.html')
 
 
+
+
+
+
+
+
+
 @login_required
 def leaves_application(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
+
     profile = EmployeeProfile.objects.get(user=request.user)
+
     if request.method == 'POST':
         Leave.objects.create(
             user=request.user,
             profile=profile,
             leave_type=request.POST.get('leave_type'),
-            start_date=request.POST.get('start_date'),
+            from_date=request.POST.get('from_date'),
             end_date=request.POST.get('end_date'),
+            leave_duration=request.POST.get('leave_duration'),
             reason=request.POST.get('reason'),
+            attach_doc=request.FILES.get('attach_doc')  
         )
-        return redirect('employee_leave_list')
+        return redirect('em_leaves_status')
     return render(request, 'em_dashboard/leaves_application.html')
 
-@login_required
+
+
+
+
 def em_leaves_status(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
 
-    return render(request, 'em_dashboard/em_leaves_status.html')
+    leaves = Leave.objects.filter(user=request.user).order_by('-applied_at')
+
+    return render(request, 'em_dashboard/em_leaves_status.html', {'leaves': leaves})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @login_required
 def em_holydays_listing(request):
