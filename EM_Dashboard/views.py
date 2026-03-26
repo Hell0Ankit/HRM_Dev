@@ -1,14 +1,27 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from HR_Dashboard.models import EmployeeProfile,Leave
-
+from HR_Dashboard.models import EmployeeProfile,Leave,HolydaysListing
+from datetime import date
 
 @login_required
 def em_dashboard(request):
     if request.user.role != 'employee':
         return HttpResponse("Unauthorized User", status=403)  
-    return render(request, 'em_dashboard/em_dashboard.html')
+    leaves = Leave.objects.filter(user=request.user).order_by('-applied_at')
+    try:
+        profile = EmployeeProfile.objects.get(user=request.user)
+    except EmployeeProfile.DoesNotExist:
+        profile = None
+    today = date.today()
+
+    holidays = HolydaysListing.objects.filter(date__gte=today).order_by('date')[:5]
+    
+    context =  {'profile': profile,
+                'leaves':leaves,
+                'holidays':holidays,
+                }
+    return render(request, 'em_dashboard/em_dashboard.html', context )
 
 
 @login_required
@@ -28,13 +41,6 @@ def my_attendance(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
     return render(request, 'em_dashboard/my_attendance.html')
-
-
-
-
-
-
-
 
 
 @login_required
@@ -58,37 +64,31 @@ def leaves_application(request):
         return redirect('em_leaves_status')
     return render(request, 'em_dashboard/leaves_application.html')
 
-
-
-
-
 def em_leaves_status(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
 
     leaves = Leave.objects.filter(user=request.user).order_by('-applied_at')
+    total_leaves = leaves.count()
+    pending_leaves = leaves.filter(status='pending').count()
+    approved_leaves = leaves.filter(status='approved').count()
+    rejected_leaves = leaves.filter(status='rejected').count()
 
-    return render(request, 'em_dashboard/em_leaves_status.html', {'leaves': leaves})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    context = {
+        'leaves': leaves.order_by('-applied_at'),
+        'total_leaves': total_leaves,
+        'pending_leaves': pending_leaves,
+        'approved_leaves': approved_leaves,
+        'rejected_leaves': rejected_leaves,
+    }
+    return render(request, 'em_dashboard/em_leaves_status.html', context)
 
 @login_required
 def em_holydays_listing(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
+    holydays = HolydaysListing.objects.all()
 
-    return render(request, 'em_dashboard/em_holydays_listing.html')
+    return render(request, 'em_dashboard/em_holydays_listing.html',{'holydays':holydays})
 
 

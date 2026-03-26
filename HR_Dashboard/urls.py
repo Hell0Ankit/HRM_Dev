@@ -22,8 +22,11 @@ urlpatterns = [
     path('leave/reject/<int:id>/', views.reject_leave, name='reject_leave'),
 
     path('holydays_listing/',views.holydays_listing, name='holydays_listing' ),
-    # path('create_employee/', views.create_employee, name='create_employee'),
-
+    path('add_holyday/',views.add_holyday, name='add_holyday' ),
+    path('edit_holyday/<int:id>/',views.edit_holyday, name='edit_holyday' ),
+    # 404 error page 
+    
+    path('error/',views.error, name='error' ),
 ]
 
 

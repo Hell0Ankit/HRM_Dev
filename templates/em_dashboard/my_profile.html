@@ -27,12 +27,12 @@
                     <p class="body-bold-text text-[18px] p-1 border-b">Name: <span class="body-text">{{profile.full_name}}</span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Employee ID: <span class="body-text">{{profile.employee_id}}</span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Designation: <span class="body-text">{{profile.designation}}</span></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">{{profile.joining_date}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Date of Joining: <span class="body-text">{{profile.joining_date|date}}</span></p>
                 </div>
                 <div class="detaildata  flex-1 space-y-2 ">
                     <p class="body-bold-text text-[18px] p-1 border-b">Phone: <a href="tel:{{profile.phone}}" class="body-text text-link">{{profile.phone}}</a></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Email: <a href="mailto:{{profile.email}}" class="body-text text-link">{{profile.email}}</a></p>
-                    <p class="body-bold-text text-[18px] p-1 border-b">Birthday:<span class="body-text">{{profile.birthday}}</span></p>
+                    <p class="body-bold-text text-[18px] p-1 border-b">Birthday:<span class="body-text">{{profile.birthday|date}}</span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Gender: <span class="body-text">{{profile.gender}}</span></p>
                     <p class="body-bold-text text-[18px] p-1 border-b">Address: <span class="body-text">{{profile.address}}</span></p>
                 </div>

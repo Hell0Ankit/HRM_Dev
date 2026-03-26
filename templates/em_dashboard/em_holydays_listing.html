@@ -2,5 +2,47 @@
 {% block title %} Emp Holydays List {% endblock%}
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
-<h2 class="text-[30px]">Holydays List</h2>
+<section class="container-dashboard space-y-[16px]">
+    <div class="section-1 flex flex-wrap justify-between gap-4">
+        <!-- Box left  -->
+        <div class="card  w-full">
+            <div class="top-bar flex justify-between">
+                <div class="left flex items-center gap-4">
+                    <div class="icon icon-primary">
+                        <i class="fas fa-umbrella-beach text-[20px]"></i>
+                    </div>
+                    <h2 class="secondary-heading">Upcoming Holidays</h2>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto mt-3 card max-h-[300px] overflow-y-auto border">
+                <table class="text-left w-[100%]">
+                    <!-- Header -->
+                    <thead class="bg-[var(--primary-light)] body-bold-text border" >
+                        <tr>
+                            <th class=" px-4 py-3">Sr.No.</th>
+                            <th class=" px-4 py-3">Date</th>
+                            <th class=" px-4 py-3">Day</th>
+                            <th class=" px-4 py-3">Holiday Name</th>
+                        
+                        </tr>
+                    </thead>
+                    <!-- Body -->
+                    <tbody class="bg-[var(--light)] body-text ">
+                        <!-- Row -->
+                        {% for holyday in holydays %}
+                        <tr class="border">
+                        <!-- Admin -->
+                            <td class="px-4 py-3 ">{{forloop.counter}}</td>
+                            <td class="px-4 py-3 ">{{holyday.date|date}}</td>
+                            <td class="px-4 py-3 ">{{holyday.date|date:"l"}}</td>
+                            <td class="px-4 py-3 ">{{holyday.holyday_list}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

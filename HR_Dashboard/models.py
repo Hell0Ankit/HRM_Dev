@@ -21,8 +21,8 @@ class EmployeeProfile(models.Model):
     employee_id = models.CharField(max_length=50, unique=True,)
     designation = models.ForeignKey(Designation, on_delete=models.SET_NULL, null=True)
     joining_date = models.DateTimeField(null=True, blank=True)
-    phone = models.CharField(max_length=15, unique=True)
-    email = models.EmailField(max_length=254, unique=True)
+    phone = models.CharField(max_length=15)
+    email = models.EmailField(max_length=254)
     birthday = models.DateTimeField(null=True, blank=True)
 
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
@@ -75,3 +75,11 @@ class Leave(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.status}"
+    
+class HolydaysListing(models.Model):
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    holyday_list = models.CharField(max_length=50)
+    created_at = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.holyday_list
