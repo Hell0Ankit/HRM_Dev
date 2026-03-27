@@ -6,7 +6,6 @@ from .models import User
 from django.http import HttpResponse
 from django.contrib import messages
 
-
 def user_login(request):
     if request.user.is_authenticated:
         if request.user.role == 'hr':
@@ -16,9 +15,7 @@ def user_login(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
             if user.role == 'hr':
@@ -29,11 +26,8 @@ def user_login(request):
             messages.error(request, "Invalid username or password")
     return render(request, 'accounts/login.html')
 
-
-
 @login_required
 def create_employee(request):
-    
     if request.user.role != 'hr':
         return HttpResponse("Unauthorized", status=403)
     if request.method == 'POST':
@@ -57,11 +51,8 @@ def create_employee(request):
         return redirect('create_employee')
     return render(request, 'hr_dashboard/employees/create_employee.html')
 
-
-    
 @login_required
 def dashboard_redirect(request):
-
     if request.user.role == 'hr':
         return redirect('hr_dashboard')
 
@@ -72,11 +63,9 @@ def user_logout(request):
     logout(request)  
     return redirect('login')  
 
-
 @login_required
 def change_password(request):
     return render(request, 'accounts/change_password.html')
-
 
 def utilities(request):
     return render(request, 'utilities.html')

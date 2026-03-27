@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from accounts.models import User
-from HR_Dashboard.models import Designation, EmployeeProfile, Leave,HolydaysListing
+from HR_Dashboard.models import Designation, EmployeeProfile, Leave,HolidaysListing
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from datetime import date
@@ -18,12 +18,11 @@ def hr_dashboard(request):
     total_employee = EmployeeProfile.objects.count()
     total_designations = Designation.objects.count()
 
-    # Show Upcoming Holydays
+    # Show Upcoming Holidays
     today = date.today()
 
-    holidays = HolydaysListing.objects.filter(date__gte=today).order_by('date')[:5]
-
-
+    holidays = HolidaysListing.objects.filter(date__gte=today).order_by('date')[:5]
+    
     context = {
         'leaves': leaves,
         'total_leaves': total_leaves,
@@ -237,8 +236,7 @@ def employee_details(request, user_id):
         'profile': profile
     })
 
-def attendance_status(request):
-    return render(request, 'hr_dashboard/employees/attendance_status.html')
+
 
 
 @login_required
@@ -284,36 +282,36 @@ def reject_leave(request, id):
 
 
 
-def holydays_listing(request):
+def holidays_listing(request):
     if request.user.role != 'hr':
         return HttpResponse("Unauthorized", status=403)
-    holydays = HolydaysListing.objects.all()
+    holidays = HolidaysListing.objects.all()
 
-    return render(request, 'hr_dashboard/employees/holydays_listing.html',{'holydays':holydays})
+    return render(request, 'hr_dashboard/employees/holidays_listing.html',{'holidays':holidays})
 
-def add_holyday(request):
+def add_holiday(request):
     if request.user.role != 'hr':
         return HttpResponse("Unauthorized", status=403)
     if request.method == 'POST':
   
         date = request.POST.get('date')
-        holyday_list = request.POST.get('holyday_list')
-        HolydaysListing.objects.create(
+        holiday_list = request.POST.get('holiday_list')
+        HolidaysListing.objects.create(
             date=date,
-            holyday_list=holyday_list
+            holiday_list=holiday_list
         )
-        return redirect('holydays_listing')
+        return redirect('holidays_listing')
     return render(request, 'hr_dashboard/employees/add_holiday.html')
 
 
-def edit_holyday(request, id):
-    holydays = get_object_or_404(HolydaysListing, id=id)
+def edit_holiday(request, id):
+    holidays = get_object_or_404(HolidaysListing, id=id)
     if request.method == 'POST':
-        holydays.date = request.POST.get('date')
-        holydays.holyday_list = request.POST.get('holyday_list')
-        holydays.save()
-        return redirect('holydays_listing')
-    return render(request, 'hr_dashboard/employees/edit_holyday.html', {'holydays':holydays})
+        holidays.date = request.POST.get('date')
+        holidays.holiday_list = request.POST.get('holiday_list')
+        holidays.save()
+        return redirect('holidays_listing')
+    return render(request, 'hr_dashboard/employees/edit_holiday.html', {'holidays':holidays})
 
     
 def error(request):

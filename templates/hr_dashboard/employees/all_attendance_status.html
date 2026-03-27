@@ -1,0 +1,65 @@
+{% extends "hr_dashboard/partial/hr_base.html" %} 
+{% block title %}Attendance {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<section class="container-dashboard space-y-[16px]">
+    <div class="form w-full card">
+        <div class="top-bar flex justify-between items-center pb-5 border-b">
+            <div class="left flex items-center gap-4">
+                <div class="icon icon-primary">
+                    <i class="fa-solid fa-person-walking-arrow-right text-[20px]"></i>
+                </div>
+                <h2 class="secondary-heading text-[25px]">Employee Attendance Sheet</h2>
+            </div>
+            <div class="hidden md:flex items-center w-64 px-4 py-2 border border-[var(--light)] rounded-full shadow-sm focus-within:ring-1 focus-within:ring-[var(--primary)] focus-within:border-[var(--primary)] transition">
+                <input type="text" placeholder="Search Here . . ." class="bg-transparent outline-none w-full text-sm text-[var(--primary)] placeholder-[var(--text-body)]"/>
+                <button type="submit" class="ml-2 text-[var(--primary)] transition">  <i class="fas fa-search"></i></button>
+            </div>
+            <div class="Meta-data flex gap-4">
+                <h2 class="secondary-heading text-[18px]">Date: <span class="text-[16px]">27 March 2026 </span> </h2>
+                <h2 class="secondary-heading text-[18px]">Day: <span class="text-[16px]"> Friday  </span> </h2>
+            </div>
+        </div>
+        <table class=" overflow-x-auto mt-3 card max-h-[300px] overflow-y-auto border text-left w-[100%]">
+            <!-- Header -->
+            <thead class="bg-[var(--primary-light)] body-bold-text border" >
+                <tr>
+                <th class=" px-4 py-3"> Sr. No.</th>
+                <th class=" px-4 py-3"> Employee ID</th>
+                <th class=" px-4 py-3"> Employee Name</th>
+                <th class=" px-4 py-3"> Check In</th>
+                <th class=" px-4 py-3">Check Out</th>
+                <th class=" px-4 py-3">Total Hr.</th>
+                <th class=" px-4 py-3">Day </th>
+                <th class=" px-4 py-3">Status</th>
+                
+                </tr>
+            </thead>
+            <!-- Body -->
+            <tbody class="bg-[var(--light)] body-text ">
+                <!-- Row -->
+                <tr class="border">
+                    <!-- Admin -->
+                    <td class="px-4 py-3 ">1</td>
+                    <td class="px-4 py-3 ">EM0001</td>
+                    <td class="px-4 py-3 ">EM Name Here </td>
+                    <td class="px-4 py-3 ">09:00 am. </td>
+                    <td class="px-4 py-3 ">06:00 pm. </td>
+                    <td class="px-4 py-3 ">09:00 hr. </td>
+                    <td class="px-4 py-3 ">Monday</td>
+                    <td class="px-4 py-3 status ">
+                        {% if employee.status == 'Present' %}
+                            <span class="status-tag bg-[var(--success)] ">Present</span>
+                        {% elif employee.status == 'Late' %}
+                            <span class="status-tag bg-[var(--warning)] ">Late</span>
+                        {% else %}
+                            <span class="status-tag bg-[var(--danger)] ">Absent</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}

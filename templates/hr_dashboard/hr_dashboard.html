@@ -60,7 +60,7 @@
                         <h2 class="secondary-heading">Upcoming Holidays</h2>
                 </div>
                  <div class="right">
-                    <a href="{% url 'holydays_listing' %}" class="icon icon-primary"> 
+                    <a href="{% url 'holidays_listing' %}" class="icon icon-primary"> 
                         <i class="fa-solid fa-up-right-from-square text-[20px]"></i>
                     </a>
                 </div>
@@ -80,13 +80,13 @@
 
                 <!-- Body -->
                 <tbody class="bg-[var(--light)] body-text ">
-                    {% for holyday in holidays %}
+                    {% for holiday in holidays %}
                         <tr class="border">
                         <!-- Admin -->
                             <td class="px-4 py-3 ">{{forloop.counter}}</td>
-                            <td class="px-4 py-3 ">{{holyday.date|date}}</td>
-                            <td class="px-4 py-3 ">{{holyday.date|date:"l"}}</td>
-                            <td class="px-4 py-3 ">{{holyday.holyday_list}}</td>
+                            <td class="px-4 py-3 ">{{holiday.date|date}}</td>
+                            <td class="px-4 py-3 ">{{holiday.date|date:"l"}}</td>
+                            <td class="px-4 py-3 ">{{holiday.holiday_list}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

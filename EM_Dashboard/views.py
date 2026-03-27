@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from HR_Dashboard.models import EmployeeProfile,Leave,HolydaysListing
+from HR_Dashboard.models import EmployeeProfile,Leave,HolidaysListing
 from datetime import date
 
 @login_required
@@ -15,7 +15,7 @@ def em_dashboard(request):
         profile = None
     today = date.today()
 
-    holidays = HolydaysListing.objects.filter(date__gte=today).order_by('date')[:5]
+    holidays = HolidaysListing.objects.filter(date__gte=today).order_by('date')[:5]
     
     context =  {'profile': profile,
                 'leaves':leaves,
@@ -87,8 +87,8 @@ def em_leaves_status(request):
 def em_holydays_listing(request):
     if request.user.role != 'employee':
         return HttpResponse("No access", status=403)
-    holydays = HolydaysListing.objects.all()
+    holidays = HolidaysListing.objects.all()
 
-    return render(request, 'em_dashboard/em_holydays_listing.html',{'holydays':holydays})
+    return render(request, 'em_dashboard/em_holydays_listing.html',{'holidays':holidays})
 
 

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'HR_Dashboard',
     'EM_Dashboard',
-    'leave_management',
+    'attendance',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +55,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'HRM_DEV.urls'
+# Replace inbuilt  User
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard_redirect'

@@ -63,7 +63,6 @@ class Leave(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(EmployeeProfile, on_delete=models.CASCADE)
-    
     leave_type = models.CharField(max_length=50)
     from_date = models.DateField()
     end_date = models.DateField()
@@ -75,11 +74,12 @@ class Leave(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.status}"
+
     
-class HolydaysListing(models.Model):
+class HolidaysListing(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False)
-    holyday_list = models.CharField(max_length=50)
+    holiday_list = models.CharField(max_length=50)
     created_at = models.DateField(auto_now_add=True)
     
     def __str__(self):
-        return self.holyday_list
+        return self.holiday_list

@@ -1,0 +1,47 @@
+{% extends "em_dashboard/partial/em_base.html" %} 
+{% load static %}
+{% block title %}Emloyee Attendance {% endblock%}
+{% block extra_css %} {% endblock %} 
+{% block dasboard_contetnt %}
+<!-- Hero Section with Featured Blog Slider -->
+<section class="section-custom min-h-screen flex items-center justify-center">
+    <div class="w-full flex justify-center items-center">
+        <div class="w-full max-w-md rounded-2xl shadow-lg p-8 space-y-6 bg-white">
+            
+            <div class="flex items-center justify-center mb-4">
+                <div class="logo w-32"> <img src="{% static 'images/logo/logo.png' %}" alt="logo" class="w-full h-auto">
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h2 class="secondary-heading mb-2 text-2xl font-bold"> Welcome Back, {{ request.user.username }} </h2>
+                <p class="body-bold-text text-gray-500 mt-1"> 
+                        Ready to start your shift?
+                </p>
+            </div>
+            
+            <div class="clock flex justify-center gap-3">
+                <div class="card secondary-heading p-3 bg-[var(--primary-light)]" id="hr">12 <span class="text-[8px] uppercase">Hours</span></div>
+                <div class="card secondary-heading p-3 bg-[var(--primary-light)]" id="mn">30 <span class="text-[8px] uppercase">Min</span> </div>
+                <div class="card secondary-heading p-3 bg-[var(--primary-light)]" id="sc">12 <span class="text-[8px] uppercase">Sec</span></div>
+            </div>
+            <div class="puntch-in flex justify-center">
+                <a href="#" class="small-icon icon-primary text-[40px] p-[30px]"><i class="fa-solid fa-fingerprint"></i></a>
+            </div>
+            <!-- Divider -->
+            <div class="flex items-center my-5">
+                <div class="flex-grow border-t"></div>
+                    <span class="mx-3 body-bold-text">or</span>
+                <div class="flex-grow border-t"></div>
+            </div>
+            <!-- Social Icons -->
+            <div class="social  flex justify-center gap-2">
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-facebook text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-x-twitter text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-whatsapp text-[20px]"></i></a>
+                <a href="#" class="small-icon icon-primary"><i class="fa-brands fa-linkedin text-[20px]"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

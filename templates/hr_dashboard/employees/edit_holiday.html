@@ -1,22 +1,22 @@
 {% extends "hr_dashboard/partial/hr_base.html" %} 
-{% block title %} Edit Holyday {% endblock%}
+{% block title %} Edit Holiday {% endblock%}
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
 <section class="container-dashboard space-y-[16px]">
     <div class="form w-full  bg-white p-6 rounded-lg shadow-md">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <h2 class="primary-heading py-6">Edit Holyday </h2>
+            <h2 class="primary-heading py-6">Edit Holiday </h2>
             <div class="">
                 <div class="flex flex-wrap justify-between gap-4">
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
-                        <label class="body-bold-text block py-2"> Holyday Title</label>
-                        <input type="text" placeholder="Holyday Title" value="{{holydays.holyday_list}}" name="holyday_list" class="input" />
+                        <label class="body-bold-text block py-2"> Holiday Title</label>
+                        <input type="text" placeholder="Holiday Title" value="{{holidays.holiday_list}}" name="holiday_list" class="input" />
                     </div>
 
                     <div class="xl:w-[calc((100%-1rem)/2)] w-full">
                         <label class="body-bold-text block py-2">Select Holiday Date</label>
-                        <input type="date"  name="date"  value="{{ holydays.date|date:'Y-m-d' }}" class="input" />
+                        <input type="date"  name="date"  value="{{ holidays.date|date:'Y-m-d' }}" class="input" />
                     </div>
                 </div>
               

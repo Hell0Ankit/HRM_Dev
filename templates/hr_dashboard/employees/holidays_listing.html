@@ -1,5 +1,5 @@
 {% extends "hr_dashboard/partial/hr_base.html" %} 
-{% block title %} Holydays List {% endblock%}
+{% block title %} Holiday List {% endblock%}
 {% block extra_css %} {% endblock %} 
 {% block dasboard_contetnt %}
 <section class="container-dashboard space-y-[16px]">
@@ -30,15 +30,15 @@
                     <!-- Body -->
                     <tbody class="bg-[var(--light)] body-text ">
                         <!-- Row -->
-                        {% for holyday in holydays %}
+                        {% for holiday in holidays %}
                         <tr class="border">
                         <!-- Admin -->
                             <td class="px-4 py-3 ">{{forloop.counter}}</td>
-                            <td class="px-4 py-3 ">{{holyday.date|date}}</td>
-                            <td class="px-4 py-3 ">{{holyday.date|date:"l"}}</td>
-                            <td class="px-4 py-3 ">{{holyday.holyday_list}}</td>
+                            <td class="px-4 py-3 ">{{holiday.date|date}}</td>
+                            <td class="px-4 py-3 ">{{holiday.date|date:"l"}}</td>
+                            <td class="px-4 py-3 ">{{holiday.holiday_list}}</td>
                             <td class="px-4 py-3 flex gap-2">
-                                <a href="{% url 'edit_holyday' holyday.id %}" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
+                                <a href="{% url 'edit_holiday' holiday.id %}" class="btn-small btn-success"><i class="fa-solid fa-pen"></i></a>
                                   <!--  <a href="#" class="btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></a> -->
                             </td>
                         </tr>

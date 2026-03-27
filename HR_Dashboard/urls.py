@@ -2,7 +2,7 @@ from django.urls import path
 from HR_Dashboard import views
 
 urlpatterns = [
-    path('hr-dashboard/', views.hr_dashboard, name='hr_dashboard'),
+    path('', views.hr_dashboard, name='hr_dashboard'),
     path('employee_listing/',views.employee_listing, name='employee_listing' ),
     path('employee_details/<int:user_id>/',views.employee_details, name='employee_details' ),
     path('edit_personal_detail/<int:id>/', views.edit_personal_detail, name='edit_personal_detail'),
@@ -15,17 +15,16 @@ urlpatterns = [
     path('edit_designations/<int:id>/',views.edit_designations, name='edit_designations' ),
     path('delete-designation/<int:id>/', views.delete_designation, name='delete_designation'),
     
-    path('attendance_status/',views.attendance_status, name='attendance_status' ),
 
     path('leaves_status/',views.leaves_status, name='leaves_status' ),
     path('leave/approve/<int:id>/', views.approve_leave, name='approve_leave'),
     path('leave/reject/<int:id>/', views.reject_leave, name='reject_leave'),
 
-    path('holydays_listing/',views.holydays_listing, name='holydays_listing' ),
-    path('add_holyday/',views.add_holyday, name='add_holyday' ),
-    path('edit_holyday/<int:id>/',views.edit_holyday, name='edit_holyday' ),
+    path('holidays_listing/',views.holidays_listing, name='holidays_listing' ),
+    path('add_holiday/',views.add_holiday, name='add_holiday' ),
+    path('edit_holiday/<int:id>/',views.edit_holiday, name='edit_holiday' ),
+
     # 404 error page 
-    
     path('error/',views.error, name='error' ),
 ]
 

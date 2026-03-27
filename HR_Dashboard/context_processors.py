@@ -6,7 +6,6 @@ def designations_data(request):
         "designations": Designation.objects.all()
     }
 
-
 def profile_data(request):
     if not request.user.is_authenticated:
         return {'profile_data': None}
