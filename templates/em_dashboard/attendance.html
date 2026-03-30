@@ -27,12 +27,30 @@
             </div>
 
             <div class="puntch-in flex justify-center">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <button type="submit" name="check_in" class="small-icon icon-primary text-[40px] p-[30px]"><i class="fa-solid fa-fingerprint"></i></button>
-                    <p class="body-bold-text text-center mt-3 uppercase">Puntch In</p>
-                </form>
-            </div>
+    <form method="POST">
+        {% csrf_token %}
+
+        {% if not attendance or not attendance.check_in %}
+            <!-- Punch In -->
+            <button type="submit" name="check_in" class="small-icon icon-primary text-[40px] p-[30px]">
+                <i class="fa-solid fa-fingerprint"></i>
+            </button>
+            <p class="body-bold-text text-center mt-3 uppercase">Punch In</p>
+
+        {% elif not attendance.check_out %}
+            <!-- Punch Out -->
+            <button type="submit" name="check_out" class="small-icon icon-primary text-[40px] p-[30px]">
+                <i class="fa-solid fa-fingerprint"></i>
+            </button>
+            <p class="body-bold-text text-center mt-3 uppercase">Punch Out</p>
+
+        {% else %}
+            <!-- Done -->
+            <p class="text-green-600 font-bold">Attendance Completed ✅</p>
+        {% endif %}
+
+    </form>
+</div>
             <!-- Divider -->
             <div class="flex items-center my-5">
                 <div class="flex-grow border-t"></div>
