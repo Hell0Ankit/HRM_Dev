@@ -165,7 +165,7 @@ def add_employee_detail(request):
         return redirect('employee_listing')
     return render(request, 'hr_dashboard/employees/profile/add_employee_detail.html', {
         'users': users,
-        'designations': Designation.objects.all()  # send designations for dropdown
+        'designations': Designation.objects.all()  
     })
 
 @login_required
