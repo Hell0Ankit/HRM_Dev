@@ -35,10 +35,8 @@ It provides **separate dashboards for HR and Employees** with role-based access 
 
 ## 🏗️ Project Structure
 
-```
-<img width="1339" height="765" alt="image" src="https://github.com/user-attachments/assets/431545e1-bae2-40f1-ab0d-ae9dbb4ca270" />
+<img width="1339" height="765" alt="image" src="https://github.com/user-attachments/assets/c442290a-252a-4f76-9bac-a46322e675e7" />
 
-```
 
 ---
 
