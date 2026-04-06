@@ -130,22 +130,16 @@ python manage.py runserver
 * REST API Integration
 * Report Export (PDF/Excel)
 * Mobile Responsive UI
-
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Feel free to fork this repo and submit a pull request.
-
----
-<img width="1908" height="820" alt="image" src="https://github.com/user-attachments/assets/46d3ccb1-a53c-4bf7-840e-0f22d057b957" />
 
 ## 📧 Contact
 
 **Ankit Singh**
 
-* GitHub: https://github.com/your-username
-* Email: [your-email@example.com](mailto:your-email@example.com)
+* GitHub:[https://github.com/Hell0Ankit/HRM_Dev](https://github.com/Hell0Ankit/HRM_Dev)
+* Email: [ankitbohra660@gmail.com](mailto:ankitbohra660@gmail.com)
 
 ---
 
