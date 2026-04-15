@@ -25,7 +25,7 @@ It provides **separate dashboards for HR and Employees** with role-based access 
 ### 👨‍💻 Employee Panel
 
 * Personal Dashboard
-* View Profile
+* View Profile.
 * Punch In / Punch Out System
 * Apply for Leave
 * View Leave Status
